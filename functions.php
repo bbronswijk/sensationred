@@ -124,6 +124,11 @@
 	 * 		'https://kernl.us/api/v1/theme-updates/56bd1052080f047d06fa86d1/'
 	 * );
 	 */
+	// add personal access token
+	add_filter( 'github_updater_token_distribution',
+    function () {
+        return array( 'sensationred' => 'ad7d38ac2a719f549ff1e959158efab380bb3a52' );
+    } );
 	 	
 	// hide option page github update
 	add_filter( 'github_updater_hide_settings', '__return_true' );
