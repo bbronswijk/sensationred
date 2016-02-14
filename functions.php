@@ -112,12 +112,21 @@
 	// custom homepage post
 	require_once('includes/homepage_editor/homepage-editor.php');
 	
-	//Theme update checker by kernl.us
-	require_once('theme_update_check.php');
-	$MyUpdateChecker = new ThemeUpdateChecker(
-	    'sensationred',
-	    'https://kernl.us/api/v1/theme-updates/56bd1052080f047d06fa86d1/'
-	);
+	//
+	/*
+	 * Theme update checker by kernl.us
+	 * Is replaced by the githup update plugin
+	 * alernative for kernl is iThemes sync
+	 * 
+	 * require_once('theme_update_check.php');
+	 * $MyUpdateChecker = new ThemeUpdateChecker(
+	 * 		'sensationred',
+	 * 		'https://kernl.us/api/v1/theme-updates/56bd1052080f047d06fa86d1/'
+	 * );
+	 */
+	 	
+	// hide option page github update
+	add_filter( 'github_updater_hide_settings', '__return_true' );
 		
 	function customize_background( $wp_customize ) {
 		// verwijder de opties die standaard staan ingesteld. 	 
