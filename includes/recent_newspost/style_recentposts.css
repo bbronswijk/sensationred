@@ -1,0 +1,71 @@
+/* navigation bar */
+
+
+
+.recentpost_widget{
+	margin-left:25px;
+}
+
+.recentpost_widget h1{
+	font-size:16px;
+	margin-bottom:0.7em;
+	font-size:25px;
+	color:#000;
+}
+
+.recentpost_widget .RPwidget_recent_post {
+	position:relative;
+	width:100%;
+	margin-bottom:1.5em;
+	padding-bottom:1em;
+	border-bottom:1px solid #b8b8b8;
+}
+
+.RPwidget_recent_post .post_thumb{
+	height:65px;
+	overflow: hidden;
+}
+
+.RPwidget_recent_post img{
+	width:100%;
+	margin-top:-70px;
+	min-height:135px;
+	height:auto;
+	border:none;
+}
+
+.RPwidget_recent_post .post_content{
+	position:relative;
+	padding-top:3px;	
+	background:#fff;
+}
+
+.RPwidget_recent_post .post_content h2{
+	margin: 8px 0;
+}
+
+.RPwidget_recent_post .post_content h2, .RPwidget_recent_post .post_content h2 a{
+	font-size:14px;
+}
+
+.RPwidget_recent_post .post_content p{
+	font-size:12px;
+	padding:0.2em 0 0.4em 0;
+}
+
+.RPwidget_recent_post .post_content img{
+	display:none;
+}
+
+.RPwidget_recent_post .post_content .readmore{
+	font-size:12px;
+}
+
+.RPwidget_recent_post .post_content .readmore:hover{
+	color:#000;
+}
+
+.RPwidget_recent_post .post_content .readmore:after{
+	content:"\00BB";
+	margin-left:20px;
+}

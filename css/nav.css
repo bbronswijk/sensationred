@@ -1,0 +1,184 @@
+/*
+ * TABLE OF CONTENTS
+ * 1. Default navigation bar ( Homepage nav wordt gestyled in homepage_editor/style.css )
+ * 2. Media Queries ( adjust default nav bar )
+ * 
+ * 
+*/
+
+
+
+/* 1. DEFAULT NAVIGATION BAR */
+header{
+	background:#fff;
+	height:170px;
+	width:100%;	
+	position:relative;
+	margin-top:0;
+	border-bottom:2px solid #ea1a35;
+	z-index:5;
+}
+
+nav.main_nav{
+	border:1px solid #fff;
+	background:#fff;
+	height:44px;
+}
+
+nav.main_nav ul{
+	padding-top:10px;
+}
+
+nav.main_nav ul li{
+	margin:0;
+	list-style:none;
+	float:left;
+	padding:3px 20px;
+	border-right:1px solid #b8b8b8;
+}
+
+nav.main_nav ul li:nth-child(1){
+	border-left:1px solid #b8b8b8;
+	margin-left:20px;
+}
+
+nav.main_nav ul li a {
+	text-decoration:none;
+	color:#000;
+	font-size:16px;
+}
+
+nav.main_nav ul li:hover > a {
+	color:#ea1a35;
+}
+
+
+nav.main_nav ul li.current_page_item a {
+	color:#ea1a35; 
+}
+
+nav.main_nav ul li.current-page-parent a {
+	color:#ea1a35; 
+}
+
+nav.main_nav ul li.current_page_item ul  li a {
+	color:#000; 
+}
+
+
+nav.main_nav ul li.current_page_parent ul  li a {
+	color:#000; 
+}
+
+nav.main_nav ul ul{
+	z-index:10;
+	position:absolute;
+	background:#fff;
+	margin-top:3px;
+	margin-left:-20px;
+	overflow:hidden;
+	max-height:0;
+	padding:0 20px;
+	
+	-webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    -ms-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+    
+    transition: 0.2s ease-in;
+	transition-delay: 0.2s;
+	-moz-transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+	-o-transition-delay: 0.2s;
+}
+
+nav.main_nav ul ul li{
+	margin:0;
+	padding:7px 10px;
+	float:none;
+	min-width:80px;
+	border:none;
+	
+}
+
+nav.main_nav ul ul li a{
+	font-size:12px;
+}
+
+nav.main_nav ul ul li:nth-child(1){
+	margin-left:0;
+	margin-top:10px;
+	color:#000;
+	border:none;
+}
+
+nav.main_nav ul ul li:nth-last-child(1){
+	margin-bottom:20px;
+}
+
+nav.main_nav li:hover > ul{
+	max-height:500px;
+}
+
+
+
+/* 2. MEDIA QUERIES */
+/*
+ * CHANGE DEFAULT NAVIGATION MENU 
+ * 
+ */
+
+@media all and (max-width : 1000px){
+	nav.main_nav ul li{
+		padding: 3px 16px;
+	}
+	
+	nav.main_nav ul li a{
+		font-size: 15px;
+	}
+	
+	.wrapper{
+		margin-left:5px;
+		margin-right: 5px;
+	}
+}
+
+@media all and (max-width : 920px) {
+	nav.main_nav ul li{
+		padding: 3px 12px;
+	}
+	
+	nav.main_nav ul li a{
+		font-size: 14px;
+	}
+}
+
+
+@media all and (max-width : 800px) {	
+	nav.main_nav ul li:first-child{
+		margin-left:12px;
+	}
+	
+	nav.main_nav ul li{
+		padding: 3px 10px;
+	}
+}
+
+@media all and (max-width : 725px) {
+	nav.main_nav{
+		display:none;
+	}
+	
+	header{
+		height: 120px;
+	}
+}
+
+@media all and (max-width: 480px){
+	header{
+		height: 100px;
+	}
+
+}
+

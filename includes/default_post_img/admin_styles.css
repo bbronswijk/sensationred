@@ -1,0 +1,13 @@
+#dp_preview_img_container{
+	width:210px;
+	height:130px;
+	overflow:hidden;
+}
+
+
+#dp_preview_img{
+	width:210px;
+	min-height:130px;
+	height:auto;
+	border:none;
+}

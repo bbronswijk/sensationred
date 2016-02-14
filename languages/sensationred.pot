@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sensationred\n"
+"POT-Creation-Date: 2014-02-09 21:55+0100\n"
+"PO-Revision-Date: 2014-02-09 22:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: Bram Bronswijk\n"
+"Language: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../category.php:36 ../single.php:28
+msgid "Published on: "
+msgstr "Gepubliceerd op: "
+
+#: ../category.php:50
+msgid "&laquo; Next posts"
+msgstr "&laquo; Nieuwe berichten"
+
+#: ../category.php:53
+msgid "Previous posts &raquo;"
+msgstr "Vorige berichten &laquo;"
+
+#: ../footer.php:10
+msgid "Head sponsor"
+msgstr "Hoofdsponsor"
+
+#: ../footer.php:24
+msgid "bussiness partners"
+msgstr "Mede mogelijk gemaakt door"
+
+#: ../front-page.php:74
+msgid "To newspost"
+msgstr "Naar nieuwsbericht"
+
+#: ../functions.php:14
+msgid "Header Menu"
+msgstr "Header Menu"
+
+#: ../functions.php:15
+msgid "Footer Menu1"
+msgstr "Footer Menu1"
+
+#: ../functions.php:16
+msgid "Footer Menu2"
+msgstr "Footer Menu2"
+
+#: ../functions.php:17
+msgid "Shortcut menu Homepage"
+msgstr "Shortcut menu Homepage"
+
+#: ../functions.php:34
+msgid "default"
+msgstr "standaard"
+
+#: ../functions.php:36
+msgid "Default sidebar, gets displayed at the left of almost every page"
+msgstr ""
+"De standaard sidebar die bijna overal aan de zijkant van de pagina wordt "
+"weergegeven"
+
+#: ../functions.php:39
+msgid "footer"
+msgstr "footer"
+
+#: ../functions.php:41
+msgid "Display widgets in the footer. Maximum of five widgets."
+msgstr "Geef de widgets weer in de footer. Maximum van vijf widgets."
+
+#: ../functions.php:44
+msgid "Homepage left"
+msgstr "Homepage sidebar links"
+
+#: ../functions.php:46
+msgid "Display widgets at homepage under navigation. Maximum of four widgets."
+msgstr ""
+"Geef de widgets op de homepage onder de navigatie weer. Maximum van vier "
+"widgets."
+
+#: ../functions.php:49
+msgid "Homepage right"
+msgstr "Homepage rechts"
+
+#: ../functions.php:51
+msgid "Display widgets at homepage at the right. Maximum of three widgets."
+msgstr ""
+"Geef de widgets op de homepage aan de rechter kant weer. Maximum van drie "
+"widgets."
+
+#: ../single.php:34
+msgid "&larr; to next post"
+msgstr "&laquo; Naar nieuwe berichten"
+
+#: ../single.php:37
+msgid "to previous post &rarr;"
+msgstr "Naar eerdere nieuwsberichten &laquo;"
+
+#: ../includes/custom_homepage_post/custom-homepage-post.php:135
+#: ../includes/custom_homepage_post/custom-homepage-post.php:136
+msgid "Choose Image"
+msgstr "Kies afbeelding"
+
+#: ../includes/custom_homepage_post/custom-homepage-post.php:158
+msgid "Custom Homepage Post. Should only be used at the homepage."
+msgstr "Custom Homepage Post. Mag alleen worden gebruikt op de homepage."
+
+#: ../includes/custom_homepage_post/custom-homepage-post.php:160
+msgid "Custom Homepage Post"
+msgstr "Custom Homepage Post"
+
+#: ../includes/custom_homepage_post/custom-homepage-post.php:222
+msgid "Image"
+msgstr "Afbeelding"
+
+#: ../includes/custom_homepage_post/custom-homepage-post.php:229
+#: ../includes/custom_homepage_post/custom-homepage-post.php:255
+#: ../includes/custom_homepage_post/custom-homepage-post.php:280
+#: ../includes/custom_homepage_post/custom-homepage-post.php:318
+msgid "Url naar pagina als er op het blok wordt geklikt"
+msgstr "Url naar pagina als er op het blok wordt geklikt"
+
+#: ../includes/footer_options/add_footer_items.php:13
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Je hebt niet voldoende rechten om deze pagina te bekijken."
+
+#: ../includes/recent_newspost/recentnewspost.php:32
+msgid "Latest news"
+msgstr "Laatste nieuws"
+
+#: ../includes/recent_newspost/recentnewspost.php:62
+msgid "Read more"
+msgstr "Lees meer"
