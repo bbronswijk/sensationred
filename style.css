@@ -191,6 +191,15 @@ tr:hover{
 }
 
 /* 2. HEADER */
+header{
+	height:170px;
+	width:100%;	
+	position:relative;
+	margin-top:0;
+	z-index:15;
+}
+
+
 .qtranxs_language_chooser{
 	padding-top:1em;
 	position:absolute; 
@@ -236,7 +245,7 @@ tr:hover{
 	max-height:70px;
 	height: auto;
 	width:auto;
-	max-width: calc(100% - 150px);
+	max-width: calc( 100% - 150px );
 	margin:20px 0 20px 20px;
 	
 }
