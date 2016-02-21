@@ -5,7 +5,7 @@
 * GitHub Theme URI:	bbronswijk/sensationred
 * Author: 			IT Laga | Bram Bronswijk   
 * Author URI: 		http://laga.nl
-* Version: 			3.5.0
+* Version: 			3.5.1
 * License: 			GNU General Public License v2 or later
 * License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: 		sensationred
@@ -61,6 +61,10 @@ body.noscroll{
 }
 
 /* 1. DEFAULT ITEMS */
+iframe{
+  max-width: 100%;
+}
+
 h1{
 	font-size: 40px;
 	color:#ea1a35;
