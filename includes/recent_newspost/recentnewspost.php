@@ -34,7 +34,7 @@ wp_enqueue_style( 'style_recentposts', get_template_directory_uri().'/includes/r
 										<article class="RPwidget_recent_post RPid-<?php echo $recent_posts->post->ID ?>">											
 												<?php if ( has_post_thumbnail() ) { ?>													
 													<div class='post_thumb'>
-														<a href="<?php the_permalink(); ?>">";										
+														<a href="<?php the_permalink(); ?>">										
 														<?php the_post_thumbnail(); ?>
 														</a>
 													</div> 
