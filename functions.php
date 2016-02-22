@@ -67,6 +67,21 @@
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 	
+	// remove Open Sans from header wordpress 3.8+
+	if (!function_exists('remove_wp_open_sans' )){
+		function remove_wp_open_sans() {
+		wp_deregister_style( 'open-sans' );
+	    wp_register_style( 'open-sans', false );
+	  }
+	  add_action('wp_enqueue_scripts', 'remove_wp_open_sans');
+	  add_action('admin_enqueue_scripts', 'remove_wp_open_sans');
+	}
+	
+	// remove unsafe meta tags
+	remove_action( 'wp_head', 'wp_generator' ) ;
+	remove_action( 'wp_head', 'wlwmanifest_link' ) ;
+	remove_action( 'wp_head', 'rsd_link' ) ;
+	
 	// hide all unnecessary widgets
 	function remove_default_widgets() {
 	     unregister_widget('WP_Widget_Pages');
