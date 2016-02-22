@@ -47,7 +47,7 @@
 }
 
 #fsb-social-bar .fsb-hide-count {
-	margin-right: 0;
+	margin-right: 0 !important;
 }
 
 /* driehoekjes van count twitter/facebook */
