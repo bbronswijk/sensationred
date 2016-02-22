@@ -43,4 +43,6 @@
 	};
 })( jQuery, window, document );
 
-(function($) { $(' nav.main_nav li:has(ul)').doubleTapToGo(); })(jQuery);
+jQuery(document).ready(function($){
+	$('nav.main_nav li:has(ul)').doubleTapToGo();;
+});
