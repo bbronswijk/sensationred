@@ -46,6 +46,10 @@
     font-size: 12px;
 }
 
+#fsb-social-bar .fsb-hide-count {
+	margin-right: 0;
+}
+
 /* driehoekjes van count twitter/facebook */
 #fsb-social-bar .fsb-count:before, .fsb-count:after{
 	content: "";
