@@ -32,7 +32,7 @@ function he_enqueue_files() {
 		wp_enqueue_script( 'jquery_ui', get_template_directory_uri() . '/includes/homepage_editor/jquery-ui.js');
 		// includes css files in admin area
 		wp_enqueue_style('he_admin_style', get_template_directory_uri() .'/includes/homepage_editor/admin_style.css',1);
-		wp_enqueue_style('he_style', get_template_directory_uri().'/includes/homepage_editor/css/font-awesome.min.css'); 
+		wp_enqueue_style('he_font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 } 
 
 // include css files for plugin

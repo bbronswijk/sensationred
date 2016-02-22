@@ -1,0 +1,88 @@
+#fsb-social-bar {
+	padding-top:0 !important;
+	border-bottom: 0px !important;
+	border-top: 0px !important;
+}
+
+#fsb-social-bar .fsb-share-facebook a, #fsb-social-bar .fsb-share-twitter a{
+	height: 20px;
+	width: 20px;
+	position:absolute;
+	top 0;	
+}
+
+#fsb-social-bar .fsb-share-facebook{
+	width: 75px !important;
+}
+
+#fsb-social-bar .fsb-share-facebook a{
+	background: #3b5998;
+}
+
+#fsb-social-bar .fsb-service-title{
+	display:block !important;
+	font-size: 0;
+	line-height: 0;
+}
+
+/* facebook logo font awesome */
+#fsb-social-bar .fsb-share-facebook  .fsb-service-title:after{
+	content: '\f09a';
+	font-family: fontawesome;
+	font-size: 13px;
+	color: #fff;
+	position: absolute;
+	top:11px;
+	margin-left: 7px;
+}
+
+#fsb-social-bar .fsb-count {
+    width: 22px !important;
+    display: block !important;
+    margin: 0px 0px 0px 30px !important;
+    border: 1px solid #9197a3;
+    padding: 0px;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+/* driehoekjes van count twitter/facebook */
+#fsb-social-bar .fsb-count:before, .fsb-count:after{
+	content: "";
+	position:absolute;
+	border-color: transparent #9197a3;
+    border-style: solid;
+    border-width: 4px 5px 4px 0;
+    display: block;
+    top: 6px;
+    margin-left: -5px;
+}
+
+#fsb-social-bar .fsb-count:after{
+	border-right-color: #fff;
+    margin-left: -3px;
+    top: 6px;
+}
+
+/* ------------------------------
+ *  TWITTER 
+ * ------------------------------
+ */
+#fsb-social-bar .fsb-share-twitter a{
+	background: #0084b4;
+}
+
+/* twitter logo fontawesome */
+#fsb-social-bar .fsb-share-twitter .fsb-service-title:after{
+	content: '\f099';
+	font-family: fontawesome;
+	font-size: 13px;
+	color: #fff;
+	position: absolute;
+	top:10px;
+	margin-left: 5px;
+}
+/* hide social bar in sidebar widget */
+.recentpost_widget .fsb-social-bar{
+	display: none;
+}

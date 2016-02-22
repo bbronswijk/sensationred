@@ -203,8 +203,15 @@
 								<div class="recent_posts">
 								<?php 
 									$showposts = ( get_option('he_show_movie')=="show" ? 2 : 3);
-								
-									query_posts('showposts='.$showposts);	if ( have_posts() ) {
+									
+									query_posts('showposts='.$showposts);	
+									$args = array(
+										'posts_per_page'   => $showposts,
+										'post_type'        => 'post'
+									);
+									$posts_array = get_posts( $args );
+									
+									if ( have_posts() ) {
 											while ( have_posts() ) {
 												the_post(); 
 												?>

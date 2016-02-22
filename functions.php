@@ -25,19 +25,28 @@
 	add_action( 'init', 'register_my_menus' );
 	
 	function add_theme_script() {
-			wp_enqueue_script('jquery');
+			wp_deregister_script('jquery');
+			wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js','','2.2.0', true);
+			wp_enqueue_style('he_font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+			
 			if ( is_page_template( 'sponsor-page.php' ) || is_page_template( 'charity-page.php' ) ){
-				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js');
+				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js','','', true);
 			}			
-			wp_enqueue_script( 'sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js');
-			wp_enqueue_script( 'mobile_nav_script', get_template_directory_uri() . '/js/header.js');
+			wp_enqueue_script( 'sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','','', true);
+			wp_enqueue_script( 'mobile_nav_script', get_template_directory_uri() . '/js/header.js','','', true);
 			wp_enqueue_style('default_stylesheet', get_template_directory_uri().'/style.css');
 			
 			if(!is_front_page()){
 				wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css');
 			} 
 			// double tap to go is een script dat dropdown menu's mogelijk maakt op touch devices. Dit is voor ipad belangrijk!!
-			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js');
+			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js','','', true);
+			
+			// include stylesheet for floating social bar
+			if ( is_plugin_active( 'floating-social-bar/floating-social-bar.php' ) ) {
+			  wp_enqueue_style( 'floating-social-bar', get_template_directory_uri() . '/css/floating_social_bar.css');
+			} 
+			
 	}add_action('wp_enqueue_scripts', 'add_theme_script');
 	
 	
@@ -144,10 +153,9 @@
 	 * );
 	 */
 	// add personal access token
-	add_filter( 'github_updater_token_distribution',
-    function () {
+	add_filter( 'github_updater_token_distribution', function (){
         return array( 'sensationred' => 'ad7d38ac2a719f549ff1e959158efab380bb3a52' );
-    } );
+    });
 	 	
 	// hide option page github update
 	add_filter( 'github_updater_hide_settings', '__return_true' );
@@ -235,9 +243,9 @@
 	    }
 		?>
 		<style id="custom-bg" type="text/css">
-			.custom-bg { <?php echo trim( $image ); ?> }
+			.custom-bg { <?php echo trim($image); ?>
+				}
 		</style>
 		<?php
-	} add_theme_support( 'custom-background', array( 'wp-head-callback' => 'change_custom_background_bram' ) );
-	
+		} add_theme_support( 'custom-background', array( 'wp-head-callback' => 'change_custom_background_bram' ) );
 	
