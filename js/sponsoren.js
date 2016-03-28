@@ -5,14 +5,14 @@ jQuery(document).ready(function($){
 	
 	$('.sponsor_posts').on('click', function () {
 		
-		var element = $(this)
+		var element = $(this);
 		var content = element.find('.sponsor_post_content');
 		var wrapper = $('.wrapper');
 		
 		// When open sponsor is clicked close it
 		if( content.is(":visible") ){
 			content.slideToggle(100);
-			return // exit rest of function
+			return; // exit rest of function
 		}		
 		
 		// Calculate horizontal position of triangle

@@ -40,18 +40,19 @@
 
 						<?php 
 						wp_reset_query();
-												
+						
 						$args = array(
 							'post_type' => 'sponsoren',
-						    'tax_query' => array(
-						        array(
-						            'taxonomy' => 'sponsor_type',
-						            'field' => 'slug',
-						            'terms' => array( 'partner' )
-						        ),
-						        'posts_per_page' => 100
-						    ),
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'sponsor_type',
+									'field'    => 'slug',
+									'terms'    => 'partner',
+								),
+							),
+							'posts_per_page' => 100
 						);
+								
 						$query = new WP_Query( $args );
 						if ( $query->have_posts() ): ?>
 						<div class="sub_sponsor">
