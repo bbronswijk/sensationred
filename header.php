@@ -27,7 +27,7 @@
 					}
 				?>
 				<div class="nav_overlay">
-					<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'mobile_nav', 'container' => 'nav' )); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'mobile_nav', 'container' => 'div' )); ?>
 				</div>	
 				<div class="navicon">
 					<a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>

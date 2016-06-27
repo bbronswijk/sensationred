@@ -55,6 +55,7 @@
 				   					<?php 
 				   						$url = get_option('he_movie_url');
 										$url = str_replace('http://youtu.be/','',$url);
+										$url = str_replace('https://youtu.be/','',$url);
 										$url = str_replace('https://www.youtube.com/watch?v=','',$url);
 										$url = str_replace('&feature=youtu.be','',$url);
 										
