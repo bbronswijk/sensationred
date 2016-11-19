@@ -86,9 +86,8 @@
     width: 200px;
     padding: 20px;
     right: 0;
-    background: #fff;
+    background: rgba(255,255,255,0.965);
     border: 1px solid #c1c1c1;
-    box-shadow:0 1px 3px 1px #808080;
 }
 
 .woocommerce ul.cart_list li dl{
@@ -107,15 +106,24 @@
 .woocommerce ul.cart_list li{
     border-bottom: 1px solid #dedede;
     margin-bottom: 10px;
+    padding-top: 2px !important;
 }
 
 .widget_shopping_cart_content .woocommerce-Price-amount{
 	font-weight: bold;
 }
 
-.woocommerce .widget_shopping_cart .total{
+.woocommerce.widget_shopping_cart .total{
 	border-top: none;
 	padding-top: 10px !important;
+}
+
+.woocommerce a.remove{
+	color: #ea1a35 !important;
+}
+
+.woocommerce a.remove:hover{
+	background: #ea1a35;
 }
 
 /* CHECKOUT PREVIEW ORDER */
