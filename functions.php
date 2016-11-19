@@ -47,6 +47,11 @@
 			  wp_enqueue_style( 'floating-social-bar', get_template_directory_uri() . '/css/floating_social_bar.css');
 			} 
 			
+			// include stylesheet for woocommerce
+			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+				wp_enqueue_style( 'woocommerce-theme-style', get_template_directory_uri() . '/css/woocommerce.css');
+			}
+			
 	}add_action('wp_enqueue_scripts', 'add_theme_script');
 	
 	
@@ -57,6 +62,10 @@
 	);
 	add_theme_support( 'custom-header', $args );
 	
+	// declare Woocommerce support
+	function woocommerce_support() {
+		add_theme_support( 'woocommerce' );
+	} add_action( 'after_setup_theme', 'woocommerce_support' );
 		
 	//register sidebars
 	if ( function_exists('register_sidebar') ){
@@ -70,6 +79,13 @@
 		  'id' => 'footer',
 		  'description' => __( 'Display widgets in the footer. Maximum of five widgets.', 'sensationred' ),
 		));
+		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			register_sidebar(array(
+			  'name' => __( 'Woocommerce Cart', 'sensationred' ),
+			  'id' => 'woocommerce',
+			  'description' => __( 'This sidebar displays the cart widget in the header of the website', 'sensationred' ),
+			));
+		}
 	}
 
 	// remove useless emoticons scripts wordpress 4.2

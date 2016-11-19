@@ -21,6 +21,7 @@
     	
     	<header>
 	    	<div class="container">
+	    		<?php get_sidebar ('woocommerce'); ?>
 	    		<?php 
 	    			if( function_exists(qtranxf_generateLanguageSelectCode) ){
 	    				echo qtranxf_generateLanguageSelectCode('image'); 
