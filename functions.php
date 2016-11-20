@@ -75,6 +75,11 @@
 		  'description' => __( 'Default sidebar, gets displayed at the left of almost every page', 'sensationred' ),
 		));
 		register_sidebar(array(
+				'name' 		=> __( 'Alternative Default ', 'my-theme' ),
+				'id' 			=> 'default-alternative',
+				'description' => __( 'Alternative Default sidebar', 'my-theme' ),
+		));
+		register_sidebar(array(
 		  'name' => __( 'footer', 'sensationred' ),
 		  'id' => 'footer',
 		  'description' => __( 'Display widgets in the footer. Maximum of five widgets.', 'sensationred' ),
