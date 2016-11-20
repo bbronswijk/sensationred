@@ -157,7 +157,7 @@
 	require_once('includes/homepage_editor/homepage-editor.php');
 	
 	// register sidebar option for page editor
-	require_once 'inc/sidebar-option.php';
+	require_once 'includes/sidebar-option.php';
 	
 	// add personal access token
 	add_filter( 'github_updater_token_distribution', function (){
