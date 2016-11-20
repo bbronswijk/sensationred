@@ -156,18 +156,9 @@
 	// custom homepage post
 	require_once('includes/homepage_editor/homepage-editor.php');
 	
-	//
-	/*
-	 * Theme update checker by kernl.us
-	 * Is replaced by the githup update plugin
-	 * alernative for kernl is iThemes sync
-	 * 
-	 * require_once('theme_update_check.php');
-	 * $MyUpdateChecker = new ThemeUpdateChecker(
-	 * 		'sensationred',
-	 * 		'https://kernl.us/api/v1/theme-updates/56bd1052080f047d06fa86d1/'
-	 * );
-	 */
+	// register sidebar option for page editor
+	require_once 'inc/sidebar-option.php';
+	
 	// add personal access token
 	add_filter( 'github_updater_token_distribution', function (){
         return array( 'sensationred' => 'ad7d38ac2a719f549ff1e959158efab380bb3a52' );
