@@ -1,7 +1,7 @@
 /* SPECIAL WOOCOMMERCE SIDEBAR OF THE SENSATIONRED THEME */
 .woocommerce_widgets{
 	padding: 10px;
-	right: 0;
+	right: -10px;
 	position: absolute;
 }
 
