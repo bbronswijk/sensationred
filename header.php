@@ -28,7 +28,7 @@
 					}
 				?>
 				<div class="nav_overlay">
-					<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'mobile_nav', 'container' => 'div' )); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'mobile_nav', 'container' => 'nav' )); ?>
 				</div>	
 				<div class="navicon">
 					<a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
@@ -46,7 +46,9 @@
 						?>
 					</a>
 		    	<!-- navigation bar --> 
-		    	<div class="default_nav"><?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'main_nav', 'container' => 'nav' )); ?> </div>  		
+		    	<div class="default_nav">
+		    		<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'main_nav', 'container' => 'nav' )); ?> 
+		    	</div>  		
 		    </div><!-- container --> 
 	   </header><!-- bg nav --> 	
 	
