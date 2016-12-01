@@ -22,7 +22,7 @@
 									<?php } ?>
 									<div id="recent_post<?php echo $i; ?>" class="recent_post <?php if( !empty($post['url_to_page'])){ echo 'clickable'; } ?>">
 											<?php if( $post['type'] == 'image'){ ?>
-												<?php $image_attributes =  wp_get_attachment_image_src( $post['img_id'] , $size='210'); ?>
+												<?php $image_attributes =  wp_get_attachment_image_src( $post['img_id'] , $size='medium'); ?>
 												<img src="<?php echo $image_attributes[0]; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
 											<?php } ?>
 											<?php if( $post['type'] == 'text'){ ?>
