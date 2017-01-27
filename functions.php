@@ -67,31 +67,33 @@
 		add_theme_support( 'woocommerce' );
 	} add_action( 'after_setup_theme', 'woocommerce_support' );
 		
-	//register sidebars
-	if ( function_exists('register_sidebar') ){
-		register_sidebar(array(
-		  'name' => __( 'default', 'sensationred' ),
-		  'id' => 'default',
-		  'description' => __( 'Default sidebar, gets displayed at the left of almost every page', 'sensationred' ),
-		));
-		register_sidebar(array(
-				'name' 		=> __( 'Alternative Default ', 'my-theme' ),
-				'id' 			=> 'default-alternative',
-				'description' => __( 'Alternative Default sidebar', 'my-theme' ),
-		));
-		register_sidebar(array(
-		  'name' => __( 'footer', 'sensationred' ),
-		  'id' => 'footer',
-		  'description' => __( 'Display widgets in the footer. Maximum of five widgets.', 'sensationred' ),
-		));
-		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+	//register sidebars	
+	function sensation_red_sidebar_init() {
+		if ( function_exists('register_sidebar') ){
 			register_sidebar(array(
-			  'name' => __( 'Woocommerce Cart', 'sensationred' ),
-			  'id' => 'woocommerce',
-			  'description' => __( 'This sidebar displays the cart widget in the header of the website', 'sensationred' ),
+			  'name' => __( 'default', 'sensationred' ),
+			  'id' => 'default',
+			  'description' => __( 'Default sidebar, gets displayed at the left of almost every page', 'sensationred' ),
 			));
+			register_sidebar(array(
+					'name' 		=> __( 'Alternative Default ', 'my-theme' ),
+					'id' 			=> 'default-alternative',
+					'description' => __( 'Alternative Default sidebar', 'my-theme' ),
+			));
+			register_sidebar(array(
+			  'name' => __( 'footer', 'sensationred' ),
+			  'id' => 'footer',
+			  'description' => __( 'Display widgets in the footer. Maximum of five widgets.', 'sensationred' ),
+			));
+			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+				register_sidebar(array(
+				  'name' => __( 'Woocommerce Cart', 'sensationred' ),
+				  'id' => 'woocommerce',
+				  'description' => __( 'This sidebar displays the cart widget in the header of the website', 'sensationred' ),
+				));
+			}
 		}
-	}
+	} add_action( 'widgets_init', 'sensation_red_sidebar_init' );
 
 	// remove useless emoticons scripts wordpress 4.2
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );

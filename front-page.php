@@ -53,15 +53,21 @@
 			   				<?php if(get_option('he_show_movie')=="show"): ?>
 				   				<div class="event_trailer">
 				   					<?php 
-				   						$url = get_option('he_movie_url');
-										$url = str_replace('http://youtu.be/','',$url);
-										$url = str_replace('https://youtu.be/','',$url);
-										$url = str_replace('https://www.youtube.com/watch?v=','',$url);
-										$url = str_replace('&feature=youtu.be','',$url);
-										
-										
+										$url = get_option('he_movie_url');
+				   						
+										if(strpos($url, 'youtu') !== false){
+											$url = str_replace('http://youtu.be/','',$url);
+											$url = str_replace('https://youtu.be/','',$url);
+											$url = str_replace('https://www.youtube.com/watch?v=','',$url);
+											$url = str_replace('&feature=youtu.be','',$url);
+											$url = '//www.youtube.com/embed/'.$url.'?rel=0&amp;controls=0&amp;showinfo=0';
+										} 
+										if(strpos($url, 'vimeo') !== false){
+											$url = str_replace('https://vimeo.com/','https://player.vimeo.com/video/',$url);
+											$url = $url.'?title=0&byline=0&portrait=0';
+										}
 									 ?>
-				   					<iframe width="453" height="255"  src="//www.youtube.com/embed/<?php echo $url; ?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+				   					<iframe width="453" height="255"  src="<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
 				   				</div>
 			   				<?php endif; ?>
 			   				

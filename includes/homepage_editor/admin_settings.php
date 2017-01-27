@@ -36,10 +36,11 @@
 				?>
 				<form name="he_movie_form" method="post" action="">
 					
-					<p>Geef een youtube filmpje op de homepage weer. Copy paste de url van het filmpje in het veld hieronder:</p>
+					<p>Geef een youtube of vimeo filmpje op de homepage weer.  Copy paste de url van het filmpje in het veld hieronder:</p>
 					<input type="checkbox" name="he_show_movie" value="show" <?php if(get_option('he_show_movie')=="show"){ echo "checked='checked'"; }  ?>/> <input type="text" name="he_movie_url" class="he_movie_url"  value="<?php echo $opt_movie_url; ?>" size="60" placeholder="vb: http://youtu.be/_zbm8pwy3vo"/>
 							     
 					<input type="submit" name="submit" class="button-primary" value="<?php esc_attr_e('opslaan', 'sensationred') ?>" />
+					<p>Deactiveer het filmpje door de checkbox uit te zetten. Wanneer je het filmpje opnieuw activeert blijft het oorsponkelijke filmpje staan.</p>
 				</form>		
 		    			
 				<div class="homepage_container"> 
@@ -189,14 +190,21 @@
 			   				<?php if(get_option('he_show_movie')=="show"): ?>
 				   				<div class="event_trailer">
 				   					<?php 
-				   						$url = get_option('he_movie_url');
-										$url = str_replace('http://youtu.be/','',$url);
-										$url = str_replace('https://www.youtube.com/watch?v=','',$url);
-										$url = str_replace('&feature=youtu.be','',$url);
-										
-										
-									 ?>
-				   					<iframe width="453" height="255" src="//www.youtube.com/embed/<?php echo $url; ?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					   					$url = get_option('he_movie_url');
+					   					 
+					   					if(strpos($url, 'youtu') !== false){
+					   						$url = str_replace('http://youtu.be/','',$url);
+					   						$url = str_replace('https://youtu.be/','',$url);
+					   						$url = str_replace('https://www.youtube.com/watch?v=','',$url);
+					   						$url = str_replace('&feature=youtu.be','',$url);
+					   						$url = '//www.youtube.com/embed/'.$url.'?rel=0&amp;controls=0&amp;showinfo=0';
+					   					}
+					   					if(strpos($url, 'vimeo') !== false){
+					   						$url = str_replace('https://vimeo.com/','https://player.vimeo.com/video/',$url);
+					   						$url = $url.'?title=0&byline=0&portrait=0';
+					   					}
+				   					?>
+				   					<iframe width="453" height="255"  src="<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
 				   				</div>
 			   				<?php endif; ?>
 			   				<div id="column2" class="column">
