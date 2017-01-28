@@ -1,0 +1,30 @@
+{
+	"vendor": {
+		"plugins/qtranslate-x": "3.4.6.8"
+	},
+	"admin-config": {
+		"homepage": {
+			"pages": {
+				"admin.php": "page=he_setting_page"
+			},
+			"anchors": {
+				"lsb": {
+					"jquery": "#homepage_form > .editor #choice_2",
+					"where": "first"
+				}
+			},
+			"forms": {
+				"homepage_form": { 
+					"fields": {
+						"full_text_ta": {
+							"jquery": "input.full_text_ta"
+						},
+						"preview": {
+							"jquery": "#full_post_content"
+						}
+					}
+				}
+			}
+		}
+	}
+}

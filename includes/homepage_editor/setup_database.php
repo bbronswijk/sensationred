@@ -22,6 +22,7 @@ function install_he_db(){
 		  margin_top text,
 		  margin_left text,
 		  content text,
+		  class text,
 		  url_to_page text,
 		  UNIQUE KEY id (id)
 		)";
@@ -29,12 +30,17 @@ function install_he_db(){
 		dbDelta( $sql );
 		update_option('he_db_version',HE_DB_VERSION);
 		
-		for( $i = 0; $i < 7; $i++ ){
-			$wpdb->insert(HE_POSTS, 
-				array( 
-					'type' => '', 
-				) 
-			);
+			
+		$results = $wpdb -> get_results("SELECT * FROM " . HE_POSTS, ARRAY_A);
+		if( count($results) === 0 ){
+			
+			for( $i = 0; $i < 7; $i++ ){
+				$wpdb->insert(HE_POSTS, 
+					array( 
+						'type' => '', 
+					) 
+				);
+			}
 		}
 	}	
 }

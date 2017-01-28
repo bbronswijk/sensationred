@@ -14,7 +14,7 @@
 define('HE_POSTS', $wpdb->prefix . 'homepage_posts');
 
 // update this number when the database needs to be updated
-define('HE_DB_VERSION','1.1');
+define('HE_DB_VERSION','1.2');
 
 add_option('he_db_version'); 
 
@@ -62,6 +62,7 @@ function save_homepage_post_db(){
 	$img_class 	= $_POST['img_class'];
 	$img_id 	= $_POST['img_id'];
 	$content	= $_POST['content'];
+	$class		= $_POST['custom_class'];
 	$page_url	= $_POST['page_url'];
 	
 	$wpdb->update(HE_POSTS,array(
@@ -72,6 +73,7 @@ function save_homepage_post_db(){
 		'margin_top'	=> 	$img_top,
 		'margin_left'	=> 	$img_left,
 		'content'		=>	$content,
+		'class'			=>  $class,
 		'url_to_page'	=>	$page_url
 		),array('id'=>$box_id));
 

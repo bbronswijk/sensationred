@@ -20,7 +20,7 @@
 									<?php if( !empty($post['url_to_page'])){ ?>
 										<a href="<?php echo $post['url_to_page']; ?>">
 									<?php } ?>
-									<div id="recent_post<?php echo $i; ?>" class="recent_post <?php if( !empty($post['url_to_page'])){ echo 'clickable'; } ?>">
+									<div id="recent_post<?php echo $i; ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } ?>">
 											<?php if( $post['type'] == 'image'){ ?>
 												<?php $image_attributes =  wp_get_attachment_image_src( $post['img_id'] , $size='medium'); ?>
 												<img src="<?php echo $image_attributes[0]; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
@@ -180,14 +180,14 @@
 									<?php if( !empty($post['url_to_page'])){ ?>
 										<a href="<?php echo $post['url_to_page']; ?>">
 									<?php } ?>
-									<div id="recent_post<?php echo $i; ?>" class="recent_post <?php if( !empty($post['url_to_page'])){ echo 'clickable'; } ?>">
+									<div id="recent_post<?php echo $i; ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } ?>">
 											<?php if( $post['type'] == 'image'){ ?>
 												<?php $image_attributes =  wp_get_attachment_image_src( $post['img_id'] , $size='medium'); ?>
 												<img src="<?php echo $image_attributes[0]; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
 											<?php } ?>
 											<?php if( $post['type'] == 'text'){ ?>
 												<div class="full_post_content">
-													<?php echo __($post['content']); ?>
+													<?php echo  __( $post['content']); ?>
 												</div>
 											<?php } ?>
 											<?php if( $post['type'] == 'mixed'){ ?>

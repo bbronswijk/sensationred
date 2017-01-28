@@ -26,21 +26,19 @@
 			
 			?>
 			<div class="wrap">
-				<h2>Homepage </h2>
-				<p>Bewerk op deze pagina de posts op de homepage. Klik op een post om deze aan te passen. </p>
-				<p>Wanneer de website in meerdere talen wordt weergegeven kan een vertaling worden toegevoegd door de tags [:nl] en [:en] te gebruiken. </br>
-					voorbeeld: [:nl]Algemene voorwaarden[:en]Terms and conditions</p>
+				<h2>Homepage </h2>				
 				<?php 
 		    				$frontpage_id = get_option('page_on_front');
 							$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $frontpage_id ), full );
 				?>
 				<form name="he_movie_form" method="post" action="">
 					
-					<p>Geef een youtube of vimeo filmpje op de homepage weer.  Copy paste de url van het filmpje in het veld hieronder:</p>
-					<input type="checkbox" name="he_show_movie" value="show" <?php if(get_option('he_show_movie')=="show"){ echo "checked='checked'"; }  ?>/> <input type="text" name="he_movie_url" class="he_movie_url"  value="<?php echo $opt_movie_url; ?>" size="60" placeholder="vb: http://youtu.be/_zbm8pwy3vo"/>
+					<p style="max-width: 700px">Bewerk op deze pagina de posts op de homepage. Klik op een post om deze aan te passen. Je kunt ook een youtube of vimeo filmpje op de homepage plaatsen. Copy paste de url van het filmpje in het veld hieronder:</p>
+					<p> Bekijk ook de <a href="#" class="toggle_example">voorbeelden <img src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/examples.png" class="examples"/></a></p>
+					<input type="checkbox" name="he_show_movie" value="show" <?php if(get_option('he_show_movie')=="show"){ echo "checked='checked'"; }  ?>/> 
+					<input type="text" name="he_movie_url" id="he_movie_url" class="he_movie_url"  value="<?php echo $opt_movie_url; ?>" size="60" placeholder="vb: http://youtu.be/_zbm8pwy3vo"/>
 							     
 					<input type="submit" name="submit" class="button-primary" value="<?php esc_attr_e('opslaan', 'sensationred') ?>" />
-					<p>Deactiveer het filmpje door de checkbox uit te zetten. Wanneer je het filmpje opnieuw activeert blijft het oorsponkelijke filmpje staan.</p>
 				</form>		
 		    			
 				<div class="homepage_container"> 
@@ -49,79 +47,103 @@
 			    		<div class="header_gradient">Gradient</div>
 					</div>	
 					<div class="main_container">	
+					<?php 
+						$translate_active_class = '';
+									   		
+						if ( is_plugin_active( 'qtranslate-x/qtranslate.php' ) ) {
+							$translate_active_class = 'qtranslate_active';
+						}	   		
+									   
+					?>
+					<form id="homepage_form" class="<?php echo $translate_active_class; ?>" name="homepage_form" method="post" action="">
+									
 									<div class="editor">
-										<div id="close_editor"></div>
-										<h1>Bewerk post</h1>
-										<hr>
-										
-										<input id="box_id" name="box_id" type="hidden"/>
-										<input id="box_type" name="box_type" type="hidden"/>
-										<input id="img_class" name="img_class" type="hidden"/>
-										<input id="img_id" name="img_id" type="hidden"/>
-										
-										<!-- eerste keuze menu --> 
-										<div class="step1">
-											<img class="choice1" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/fullimg.png"/ >
-											<img class="choice2" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/fulltext.png"/>
-											<img class="choice3" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/imgtext.png"/>
-											<p>selecteer een type</p>
-										</div>
-										
-										<div id="choice_1" class="choice full_image">
-											<!-- image --> 
-											<div class="recent_post">
-												<img id="he_full_img_preview" src="" />
-											</div>	
-											<!-- image upload button --> 
-											<div class="buttons">
-												<input id="he_upload_image_button_1" class="he_upload_image_button button-secondary " type="button" value="Upload Image" />
+									   
+											<div id="close_editor"></div>
+											<h1>Bewerk post</h1>
+											<hr>
+											
+											<input id="box_id" name="box_id" type="hidden"/>
+											<input id="box_type" name="box_type" type="hidden"/>
+											<input id="img_class" name="img_class" type="hidden"/>
+											<input id="img_id" name="img_id" type="hidden"/>
+											
+											<!-- eerste keuze menu --> 
+											<div class="step1">
+												<img class="choice1" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/fullimg.png"/ >
+												<img class="choice2" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/fulltext.png"/>
+												<img class="choice3" src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/imgtext.png"/>
+												<p>selecteer een type</p>
 											</div>
 											
-										</div>
-										
-										<div id="choice_2" class="choice full_text">
-											<!-- buttons for full text to switch between visual en text--> 
-											<div class="full_button_visual full_view_tab">visual</div><div class="full_button_html full_view_tab">html</div>
-											<div class="recent_post">
-												<div class="full_post_content" contenteditable="true"></div>
-												<!-- textarea full text --> 
-						               			<textarea class="full_text_ta" name="full_text_ta" type="text" ></textarea>
-											</div>
-						               		<!-- full text small text --> 
-							          		<div class="buttons">
-												<div class="button_h1 button-secondary">kleine tekst</div>
-											</div>
-											
-										</div>
-										
-										<div id="choice_3" class="choice mixed_ad">
-											<!-- buttons for full text to switch between visual en text--> 
-											<div class="recent_post">
-												<div class="post_thumb">
-													<img id="he_mixed_img_preview" src="" />
-												</div>
-												<div class="button_visual view_tab">visual</div><div class="button_html view_tab">html</div>
-												<div class="post_content homepagepost" contenteditable="true" ></div>
-												<!-- textarea full text --> 
-												<textarea class="mixed_ad_ta" name="mixed_ad_ta" type="text" ></textarea>
-											</div>
-																						
-											<div class="buttons">
+											<div id="choice_1" class="choice full_image">
+												<!-- image --> 
+												<div class="recent_post">
+													<img id="he_full_img_preview" src="" />
+												</div>	
 												<!-- image upload button --> 
-												<input id="he_upload_image_button_2" class="he_upload_image_button full_image button-secondary" type="button" value="Upload Image" />											
-												<div class="button_h2 button-secondary">kop tekst</div>
+												<div class="buttons">
+													<input id="he_upload_image_button_1" class="he_upload_image_button button-secondary " type="button" value="Upload Image" />
+												</div>
+												
 											</div>
 											
-										</div>
-										
-										<div id="submit_post">
-											<hr>
-											<input id="page_url" name="url" type="text" placeholder="link to page"/>
-											<hr>
-											<div class="button-secondary box_back">terug</div>
-											<div class="button-secondary box_reset">verwijder</div>
-											<div class="save_box button-primary">voeg toe</div>
-										</div>
+											<div id="choice_2" class="choice full_text">
+												<!-- buttons for full text to switch between visual en text--> 
+												<div class="full_button_visual full_view_tab">visual</div><div class="full_button_html full_view_tab">html</div>
+												<div class="recent_post">
+													<div class="full_post_content" contenteditable="true"></div>
+													<!-- textarea full text --> 
+							               			<textarea class="full_text_ta i18n-multilingual" name="full_text_ta" type="text" ></textarea>
+												</div>
+							               		<!-- full text small text --> 
+								          		<div class="buttons">
+													<div class="button_h1 button-secondary"><strong>Ii</strong></div>
+												</div>
+												
+											</div>
+											
+											<div id="choice_3" class="choice mixed_ad">
+												<!-- buttons for full text to switch between visual en text--> 
+												<div class="recent_post">
+													<div class="post_thumb">
+														<img id="he_mixed_img_preview" src="" />
+													</div>
+													<div class="button_visual view_tab">visual</div><div class="button_html view_tab">html</div>
+													<div class="post_content homepagepost" contenteditable="true" ></div>
+													<!-- textarea full text --> 
+													<textarea class="mixed_ad_ta" name="mixed_ad_ta" type="text" ></textarea>
+												</div>
+																							
+												<div class="buttons">
+													<!-- image upload button --> 
+													<input id="he_upload_image_button_2" class="he_upload_image_button full_image button-secondary" type="button" value="Upload Image" />											
+													<div class="button_h2 button-secondary"><strong>Kop</strong></div>
+												</div>
+												
+											</div>											
+											<div id="submit_post">
+											
+												<div class="extra_option">
+													<hr>
+													<h3>Redirect url</h3>
+													<p>Redirect naar pagina wanneer de gebruiker op het bericht klikt.</p>
+													<input id="page_url" name="url" type="text" placeholder="link to page"/>
+													<hr>
+													
+													<h3>Custom Class</h3>
+													<p>Past de tekst net niet lekker in het blok? Geef het blok de custom class 'small'. Accepteert ook andere classes!</p>
+													<input id="custom_class" name="custom_class" type="text" placeholder="vb: small"/>
+													<hr>
+												</div>
+												
+												<div class="submit_buttons">
+													<hr>
+													<div class="button-secondary box_back">terug</div>
+													<div class="button-secondary box_reset submitdelete ">verwijder</div>
+													<div class="save_box button-primary">voeg toe</div>
+												</div>
+											</div>
 										
 									</div>
 									<div class="editor_bg">hoi</div>
@@ -150,7 +172,7 @@
 									$post = stripslashes_deep($wpdb->get_row( "SELECT * FROM ".HE_POSTS." WHERE id= ".$i."",ARRAY_A)); ?>
 									<!-- homepage post --> 
 									
-									<div id="<?php echo $i ?>" class="recent_post <?php if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
+									<div id="<?php echo $i ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
 										<div id="edit_post_<?php echo $i ?>" class="edit_post">
 										<i class="fa fa-pencil-square-o"></i>
 										</div>
@@ -162,8 +184,9 @@
 												<img id="img_id_<?php echo $post['img_id']; ?>'" src="<?php echo $post['img_url']; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
 											<?php } ?>
 											<?php if( $post['type'] == 'text'){ ?>
-												<div class="full_post_content">
-													<?php echo $post['content']; ?>
+												<input type="hidden" class="qtranslation-post" value="<?= $post['content']; ?>"/>
+												<div class="full_post_content i18n-multilingual-display">
+													<?= __( $post['content']); ?>
 												</div>
 											<?php } ?>
 											<?php if( $post['type'] == 'mixed'){ ?>
@@ -312,7 +335,7 @@
 									
 									$post = $wpdb->get_row( "SELECT * FROM ".HE_POSTS." WHERE id= ".$i."",ARRAY_A); ?>
 									<!-- homepage post --> 
-									<div id="<?php echo $i ?>" class="recent_post <?php if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
+									<div id="<?php echo $i ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
 										<div id="edit_post_<?php echo $i ?>" class="edit_post">
 										<i class="fa fa-pencil-square-o"></i>
 										</div>
@@ -349,7 +372,8 @@
 							</div>
 													
 						</div>
-		    		</div>	
+						</form>
+		    		</div>	<!-- Main container -->
 		    			
 						    			
 				</div>

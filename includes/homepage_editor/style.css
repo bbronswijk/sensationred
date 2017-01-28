@@ -394,7 +394,6 @@ nav.main_nav li:hover > ul{
 	margin-bottom:1.5em;
 }
 
-
 /* Full post content = red box with text  */
 .recent_post .full_post_content{
 	height:195px;
@@ -427,6 +426,10 @@ nav.main_nav li:hover > ul{
 	line-height:1em;
 	font-weight:bold;
 	color:#fff;
+}
+
+.recent_post.small .full_post_content{
+	font-size: 18px;
 }
 
 /* read more class of the three latest newsposts */
