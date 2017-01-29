@@ -649,7 +649,6 @@ jQuery(document).ready(function($){
 					var other_lang = 'nl';
 				}
 				
-				alert('cur langL'+cur_lang);
 				
 				// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
 				// daarom moet je de content uit het textarea pakken
@@ -670,7 +669,6 @@ jQuery(document).ready(function($){
 					content = $('.full_text_ta').val();
 				}
 				
-				alert('saved content:'+content);
 			}
 			
 			data = { 
