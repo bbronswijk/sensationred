@@ -307,10 +307,10 @@ jQuery(document).ready(function($){
 		 		
 		 		// Enable draggable image
 		 		if(img_class == 'horizontal'){
-		 			setTimeout(function () { calibrate_horizontal(); }, 300);
+		 			setTimeout(function () { calibrate_horizontal(); }, 800);
 		 		} 
 		    	else if(img_class == 'vertical'){
-		 			setTimeout(function () { calibrate_vertical(); }, 300);
+		 			setTimeout(function () { calibrate_vertical(); }, 800);
 		 		} 		 		
 			}
 			else{

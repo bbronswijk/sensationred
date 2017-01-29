@@ -717,10 +717,6 @@ Version: 		0.5
 	overflow-x: hidden;
 }
 
-.editor .recent_post{
-	overflow: visible;
-}
-
 .mixed_ad_ta{
 	display:none;
 	background:#fff;
