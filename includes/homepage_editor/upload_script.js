@@ -9,6 +9,7 @@ jQuery(document).ready(function($){
     var qtranslate_active = false;
     
     $editor = $('.editor');
+   
     
     if( $('#homepage_form').hasClass('qtranslate_active') )
     	qtranslate_active = true;
@@ -118,6 +119,14 @@ jQuery(document).ready(function($){
     
     // when scrolling the draggable function needs to be recalibrated 
     $( window ).scroll(function() {
+    	if($('#he_full_img_preview').is('.vertical') && $('#he_full_img_preview').is(":visible")){
+			$recentpost = $editor.find('#choice_1 .recent_post');
+    	} else if($('#he_mixed_img_preview').is('.vertical') && $('#he_mixed_img_preview').is(":visible")){
+			$recentpost = $editor.find('#choice_3 .recent_post');
+    	} else{
+    		return false;
+    	}
+    	
     	if( $recentpost.find('img').hasClass('vertical') )
 		    calibrate_vertical();   
     	
@@ -216,7 +225,7 @@ jQuery(document).ready(function($){
 		 		
 		 		// Set the content in the 
 		 		if ($('.full_text_ta').is(':visible') ){ 	
-		 			content = $box.find('.content .full_post_content').html(); 	
+		 			content = $box.find('.content .full_post_content').html().trim(); 	
 		    		$('.full_text_ta').val(content);
 		    	}
 		    	if ($('.full_text_ta').is(':hidden') ){ 
@@ -385,14 +394,16 @@ jQuery(document).ready(function($){
 	 	
 	});
 	
+	// VISUAL HTML EDITOR SWITCHING BUTTONS
 	
 	// html full text
 	$(".full_button_html").live("mousedown",function() {
 			update_full_post_content_text();
 		    if ($('.full_text_ta').is(':hidden') ){ 	    		
 		    		$('.button_h1').hide();
-		    		$('.editor .full_post_content').hide();
-		    		$('.editor .full_text_ta').show();
+		    		$editor.find('.full_post_content').hide();
+		    		$editor.find('.full_text_ta').show();
+		    		$editor.find('.qtranxs-lang-switch-wrap').show();
 		    		$('.full_button_html').css("background","#fff");
 		    		$('.full_button_visual').css("background","#EBEBEB");
 		    		$('.full_button_visual').css("color","#555");
@@ -404,8 +415,9 @@ jQuery(document).ready(function($){
 		
 		    if ($('.full_text_ta').is(':visible') ){ 	    		
 		    		$('.button_h1').fadeIn(500);
-		    		$('.editor .full_post_content').fadeIn(500);
-		    		$('.editor .full_text_ta').hide();
+		    		$editor.find('.full_post_content').fadeIn(500);
+		    		$editor.find('.full_text_ta').hide();
+		    		$editor.find('.qtranxs-lang-switch-wrap').hide();
 		    		$('.full_button_html').css("background","#EBEBEB");
 		    		$('.full_button_visual').css("background","#ea1a35");
 		    		$('.full_button_visual').css("color","#fff");
@@ -418,7 +430,7 @@ jQuery(document).ready(function($){
 			update_post_content_text();
 		    if ($('.button_html').is(':visible') ){ 	    		
 		    		$('.button_h2').hide();
-		    		$('.editor .post_content').hide();
+		    		$editor.find('.post_content').hide();
 		    		$('.mixed_ad_ta').show();
 		    		$('.button_html').css("background","#fff");
 		    		$('.button_visual').css("background","#EBEBEB");
@@ -429,16 +441,16 @@ jQuery(document).ready(function($){
 	$(".button_visual").live("mousedown",function() {
 		    if ($('.button_visual').is(':visible') ){ 
 		    		$('.button_h2').fadeIn(500);
-		    		$('.editor .post_content').show();
+		    		$editor.find('.post_content').show();
 		    		$('.mixed_ad_ta').hide();
 		    		$('.button_html').css("background","#EBEBEB");
 		    		$('.button_visual').css("background","#fff");
-		    		$('.editor .post_content').html($('.mixed_ad_ta').val());
+		    		$editor.find('.post_content').html($('.mixed_ad_ta').val());
 		    	}
 	});
 	
 	
-	//Grab selected text
+	//Grab selected text 
 	function getSelectedElem(){
 		    if(window.getSelection){
 		        return $(window.getSelection().anchorNode);
@@ -485,6 +497,8 @@ jQuery(document).ready(function($){
 		    }	
 	});
 	
+	/* LIVE UPDATE TEXTAREAS FROM CONTENT EDITABLE DIV */
+	
 	// update the textarea of the mixedbox with the content of the editable div
 	function update_post_content_text(){
 	        var content = $editor.find('.post_content').html();
@@ -499,15 +513,29 @@ jQuery(document).ready(function($){
 
 	// update the textarea of the redbox with the content of the editable div
 	function update_full_post_content_text(){
-	        var content = jQuery('.editor .full_post_content').html();
+		
+	        var content = $editor.find('.full_post_content').html().trim();
+	      
 	        $('.full_text_ta').val(content);	        
-	        $('.full_post_content > p').contents().unwrap();
-	        
+	        $('.full_post_content > p').contents().unwrap(); // remove parent p
+	        	        
+	        // convert html elements in textarea
 	        var stripped_content = $('.full_text_ta').val().replace("&lt;/h1&gt;","</h1>").replace("&lt;h1&gt;","<h1>").replace(/<\/div>/g,"").replace(/<div>/g,"<br>");    
-	        var new_stripped_content = stripped_content.replace(/<p>/g,"").replace(/<\/p>/g,"").replace(/<br><br><br>/g,"<br><br>");   
-	        
+	        var new_stripped_content = stripped_content.replace(/<p>/g,"").replace(/<\/p>/g,"").replace(/<br><br><br>/g,"<br><br>").trim();   
+	        	        
+	        // set content html editor and visual editor
 			$('.full_text_ta').val(new_stripped_content);
 	        $(".full_post_content:contains('h1')").html($('.full_text_ta').val());
+	}
+	
+	// synch visual editor with textarea
+	function sync_visual_editor(){
+		if ( $editor.find('.post_content').is(':visible') && $('.mixed_ad_ta').is(':hidden')){ 
+			update_post_content_text();
+		}
+		if( $editor.find('.full_post_content').is(':visible') && $('.full_text_ta').is(':hidden')){
+			update_full_post_content_text();
+		}
 	}
 	
 	// synchronize the editor with the actual posts
@@ -536,7 +564,7 @@ jQuery(document).ready(function($){
 				}
 			}
 			if(type=='text'){
-				content = $('.editor .full_text_ta').val();
+				content = $editor.find('.full_text_ta').val();
 				$('#'+id+' .content').html('<div class="full_post_content">'+content+'</div>');
 				if($('#page_url').val()){
 					$('#'+id).addClass('clickable');
@@ -577,12 +605,8 @@ jQuery(document).ready(function($){
 
 	// save everything to the database
 	$('.save_box').click(function(){
-		if ($('.mixed_ad_ta').is(':hidden')){ 
-				update_post_content_text();
-			}
-		if($('.full_text_ta').is(':hidden')){
-				update_full_post_content_text();
-			}
+		sync_visual_editor();
+		
 		box_id = $('.editor #box_id').val();
 		box_type = $('.editor #box_type').val();
 		page_url = $('.editor #page_url').val();
@@ -616,15 +640,37 @@ jQuery(document).ready(function($){
 				
 				content = '';
 				
-				if($("input[name='qtranslate-fields[full_text_ta][nl]']").val().length > 0)
-					content = '[:nl]'  + $("input[name='qtranslate-fields[full_text_ta][nl]']").val();
+				// get current language
+				var cur_lang = $editor.find('.qtranxs-lang-switch.active').attr('lang');
 				
-				if($("input[name='qtranslate-fields[full_text_ta][en]']").val().length > 0)
-					content += '[:en]' + $("input[name='qtranslate-fields[full_text_ta][en]']").val();
+				if( cur_lang === 'nl'){
+					var other_lang = 'en';
+				} else{
+					var other_lang = 'nl';
+				}
 				
+				alert('cur langL'+cur_lang);
+				
+				// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
+				// daarom moet je de content uit het textarea pakken
+				
+				if( $('.full_text_ta').is(':visible') ){
+					if( $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val().length > 0 )
+						content = '[:'+cur_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val()
+										
+				}else{
+					content = '[:'+cur_lang+']' + $('.full_text_ta').val();
+				}				
+									
+				if( $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val().length > 0)
+					content += '[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val()
+				
+				// als de content nog steeds leeg is pak alles uit het openstaande textarea
 				if( content.length == 0 ){
 					content = $('.full_text_ta').val();
 				}
+				
+				alert('saved content:'+content);
 			}
 			
 			data = { 
@@ -670,12 +716,7 @@ jQuery(document).ready(function($){
 	
 	// qtranslate-X
 	$('.qtranxs-lang-switch').live('click',function(){
-		// full text
-		if ($('.editor .full_post_content').is(':visible') ){
-			$('.editor .full_post_content').html($('.full_text_ta').val());
-		}
-		 
-		// 
+				
     });
  
 	
