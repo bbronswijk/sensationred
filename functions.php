@@ -83,7 +83,7 @@
 			register_sidebar(array(
 			  'name' => __( 'footer', 'sensationred' ),
 			  'id' => 'footer',
-			  'description' => __( 'Display widgets in the footer. Maximum of five widgets.', 'sensationred' ),
+			  'description' => __( 'Display widgets in the footer. Maximum of three widgets.', 'sensationred' ),
 			));
 			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 				register_sidebar(array(
@@ -148,6 +148,12 @@
 	// style the editor 
 	add_editor_style('css/editor_style.css'); 
 
+	// customizer settings
+	require_once 'includes/customizer.php';
+	
+	// register dashboard widget 
+	require_once 'includes/dashboard-widget.php';
+	
 	// create option to set a default post image
 	require_once('includes/default_post_img/default_post_img.php');	
 	
