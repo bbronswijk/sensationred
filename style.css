@@ -1073,7 +1073,7 @@ footer .copyright{
 
 @media all and (max-width : 950px) {
 	.background_footer .footer_widgets .widget:last-child{
-		padding-left: 0;
+		
 	}
 	
 	.sponsor_text h1{
