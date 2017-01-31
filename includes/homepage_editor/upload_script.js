@@ -10,9 +10,28 @@ jQuery(document).ready(function($){
     
     $editor = $('.editor');
    
-    
-    if( $('#homepage_form').hasClass('qtranslate_active') )
-    	qtranslate_active = true;
+    // timeout is needed to wait for qtranslate
+    setTimeout(function () { 
+	    if( $('#homepage_form').hasClass('qtranslate_active') ){
+	    	// set class
+	    	qtranslate_active = true;
+	    	
+	    	// qtranslate cant handle h1 tags on load of page 
+	    	// so we have to fix this manually using a hidden input field
+	    	for( i = 1; i <= 7; i++ ){
+	    		$box = $('#'+i);
+	    			    		    		
+	    		var translation = $box.find("input[name='trans_content_"+i+"']").val();
+	    		$container = $box.find('.full_post_content');
+	    		
+	    		if( typeof translation != 'undefined' ){
+	        		$container.html(translation);
+	    		}  		
+	    		
+	    	}
+	    }
+    }, 300);
+
     
     $('.he_upload_image_button').click(function(e) {
  		upload_field_id = jQuery(this).attr('id').replace ( /[^\d.]/g, '' );
@@ -194,14 +213,13 @@ jQuery(document).ready(function($){
 
 
 	// fire up the editor
-	$('.edit_post').live("mousedown",function(){		
+	$('.edit_post').live("click",function(){	
 			$editor.fadeIn(300);
 			$('.editor_bg').fadeIn(300);
-			
-			
+						
 			box_id = $(this).attr('id').replace ( /[^\d.]/g, '' );
 			$box = $('#'+box_id);
-			
+						
 			// Set input field box_id 
 			$('.editor #box_id').val(box_id);			
 		
@@ -223,11 +241,20 @@ jQuery(document).ready(function($){
 		 		$('#choice_2').fadeIn(300);
 		 		$('#submit_post').fadeIn(300);
 		 		
-		 		// Set the content in the 
-		 		if ($('.full_text_ta').is(':visible') ){ 	
-		 			content = $box.find('.content .full_post_content').html().trim(); 	
-		    		$('.full_text_ta').val(content);
-		    	}
+		 		// sync box > editor
+		 		sync_translate_editor(box_id);
+		 		
+		 		// Set the content in the textarea
+		 		if ($('.full_text_ta').is(':visible') ){ 
+		 			if( qtranslate_active === true ){
+		 				translation = $box.find('input.i18n-multilingual').val();
+		 				$('.full_text_ta').val(translation);
+		 			} else{
+		 				content = $box.find('.content .full_post_content').html().trim(); 	
+			    		$('.full_text_ta').val(content);
+		 			}
+		 		}	
+		    	
 		    	if ($('.full_text_ta').is(':hidden') ){ 
 		    		content = $box.find('.content .full_post_content').html();
 		    		$('.editor .full_post_content').html(content);	
@@ -538,6 +565,69 @@ jQuery(document).ready(function($){
 		}
 	}
 	
+	// box -> editor
+	function sync_translate_editor(box_id){
+		// only run this function if qtranslate is active
+		if(qtranslate_active === false)
+			return false;
+			
+		// gather information from box
+		var nl = $("input[name='qtranslate-fields[trans_content_"+box_id+"][nl]']").val();
+		var en = $("input[name='qtranslate-fields[trans_content_"+box_id+"][en]']").val();
+		
+		// select boxes
+		$("input[name='qtranslate-fields[full_text_ta][nl]']").val(nl);
+		$("input[name='qtranslate-fields[full_text_ta][en]']").val(en);	
+		
+
+		console.log('box -> editor: nl:'+nl+' en:'+en);
+	}
+	
+	// editor -> box
+	function sync_translate_box(box_id){
+		// only run this function if qtranslate is active
+		if(qtranslate_active === false)
+			return false;
+		
+		$box = $('#'+box_id);
+		
+		// gather information from editor
+		var nl = $("input[name='qtranslate-fields[full_text_ta][nl]']").val();
+		var en = $("input[name='qtranslate-fields[full_text_ta][en]']").val();
+		
+		// get current language
+		var cur_lang = $editor.find('.qtranxs-lang-switch.active').attr('lang');
+		
+		// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
+		// daarom moet je de content uit het textarea pakken				
+		//if( $('.full_text_ta').is(':hidden') ){
+		var content = $('.full_text_ta').val();
+				
+		if(cur_lang === 'nl'){
+			nl = content;
+		} else{
+			en = content;
+		}							
+		//}		
+		
+		// save active translation to usable field		
+		if(cur_lang === 'nl'){
+			$box.find("input[name='trans_content_"+box_id+"']").val(nl);
+		} else{
+			$box.find("input[name='trans_content_"+box_id+"']").val(en);
+		}
+		
+		// select boxes
+		var box_nl = $("input[name='qtranslate-fields[trans_content_"+box_id+"][nl]']");
+		var box_en = $("input[name='qtranslate-fields[trans_content_"+box_id+"][en]']");
+		
+		// sync translation
+		box_nl.val(nl);
+		box_en.val(en);		
+		
+		console.log('editor -> box: nl:'+nl+' en:'+en);
+	}
+	
 	// synchronize the editor with the actual posts
 	function sync_editor(){
 			type = $('#box_type').val();
@@ -604,14 +694,20 @@ jQuery(document).ready(function($){
 	}
 
 	// save everything to the database
+	// 1. synch visual editor to textarea
+	// 2. gather content
+	// 3. synch translated content hidden input fields
+	// 4. ajax call to database	
+	// 5. save editor content to post ( from textarea )
 	$('.save_box').click(function(){
 		sync_visual_editor();
 		
 		box_id = $('.editor #box_id').val();
+		$box = $('#'+box_id);
 		box_type = $('.editor #box_type').val();
 		page_url = $('.editor #page_url').val();
 		custom_class = $('.editor #custom_class').val();
-		
+				
 		if(box_type == 'image'){
 			src= $('#he_full_img_preview').attr('src');
 			img_top = $('#he_full_img_preview').css('top');
@@ -647,27 +743,29 @@ jQuery(document).ready(function($){
 					var other_lang = 'en';
 				} else{
 					var other_lang = 'nl';
-				}
-				
+				}				
 				
 				// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
-				// daarom moet je de content uit het textarea pakken
-				
-				if( $('.full_text_ta').is(':visible') ){
-					if( $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val().length > 0 )
+				// daarom moet je de content uit het textarea pakken				
+				if( $('.full_text_ta').is(':hidden') ){
+					if( $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val().length > 0 ){
 						content = '[:'+cur_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val()
-										
+					}
 				}else{
 					content = '[:'+cur_lang+']' + $('.full_text_ta').val();
 				}				
 									
-				if( $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val().length > 0)
-					content += '[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val()
+				if( $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val().length > 0){
+					content += '[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val();
+				}					
 				
 				// als de content nog steeds leeg is pak alles uit het openstaande textarea
 				if( content.length == 0 ){
 					content = $('.full_text_ta').val();
 				}
+				
+				// sync editor -> box
+				sync_translate_box(box_id);
 				
 			}
 			
@@ -702,6 +800,7 @@ jQuery(document).ready(function($){
 				content		: 	content
 			};
 		}
+		
 		
 		
 		jQuery.post(ajaxurl,data,function(response){

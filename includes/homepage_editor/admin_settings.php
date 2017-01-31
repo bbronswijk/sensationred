@@ -170,35 +170,34 @@
 									global $wpdb;	
 									
 									$post = stripslashes_deep($wpdb->get_row( "SELECT * FROM ".HE_POSTS." WHERE id= ".$i."",ARRAY_A)); ?>
-									<!-- homepage post --> 
-									
+															
+									<!-- homepage post --> 	
 									<div id="<?php echo $i ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
-										<div id="edit_post_<?php echo $i ?>" class="edit_post">
-										<i class="fa fa-pencil-square-o"></i>
-										</div>
+										<input type="hidden" class="i18n-multilingual" name="trans_content_<?php echo $i ?>" value="<?= __($post['content'] ); ?>">
+										<div id="edit_post_<?php echo $i ?>" class="edit_post"><i class="fa fa-pencil-square-o"></i></div>
 										<?php if( !empty($post['url_to_page'])){ ?>
 										<a href="<?php echo $post['url_to_page']; ?>">
-										<?php } ?>
-										<div class="content">
-											<?php if( $post['type'] == 'image'){ ?>
-												<img id="img_id_<?php echo $post['img_id']; ?>'" src="<?php echo $post['img_url']; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
 											<?php } ?>
-											<?php if( $post['type'] == 'text'){ ?>
-												<input type="hidden" class="qtranslation-post" value="<?= $post['content']; ?>"/>
-												<div class="full_post_content i18n-multilingual-display">
-													<?= __( $post['content']); ?>
-												</div>
-											<?php } ?>
-											<?php if( $post['type'] == 'mixed'){ ?>
-												<div class="post_thumb">
+											<div class="content">
+												<?php if( $post['type'] == 'image'){ ?>
 													<img id="img_id_<?php echo $post['img_id']; ?>'" src="<?php echo $post['img_url']; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
-												</div>
-												<div class="post_content">
-													<?php echo stripslashes ($post['content']); ?>
-												</div>
-											<?php } ?>
-										</div>
-										<?php if( !empty($post['url_to_page'])){ ?>
+												<?php } ?>
+												<?php if( $post['type'] == 'text'){ ?>		
+																																												
+													<div class="full_post_content i18n-multilingual-display">																																						
+														<?=  __( $post['content'] ); ?>													
+													</div>
+												<?php } ?>
+												<?php if( $post['type'] == 'mixed'){ ?>
+													<div class="post_thumb">
+														<img id="img_id_<?php echo $post['img_id']; ?>'" src="<?php echo $post['img_url']; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
+													</div>
+													<div class="post_content">													
+														<?php echo stripslashes ($post['content']); ?>
+													</div>
+												<?php } ?>
+											</div>
+											<?php if( !empty($post['url_to_page'])){ ?>
 										</a>
 										<?php } ?>
 									</div>
@@ -336,6 +335,7 @@
 									$post = $wpdb->get_row( "SELECT * FROM ".HE_POSTS." WHERE id= ".$i."",ARRAY_A); ?>
 									<!-- homepage post --> 
 									<div id="<?php echo $i ?>" class="recent_post <?php echo $post['class'].' '; if( !empty($post['url_to_page'])){ echo 'clickable'; } if(empty($post['type'])){ echo 'empty_post'; } ?>">
+										<input type="hidden" class="i18n-multilingual" name="trans_content_<?php echo $i ?>" value="<?= __($post['content'] ); ?>">
 										<div id="edit_post_<?php echo $i ?>" class="edit_post">
 										<i class="fa fa-pencil-square-o"></i>
 										</div>
@@ -348,8 +348,8 @@
 												<img id="img_id_<?php echo $post['img_id']; ?>'" src="<?php echo $post['img_url']; ?>" class="<?php echo $post['img_class']; ?>"  style="position: absolute; left: <?php echo $post['margin_left']; ?>; top: <?php echo $post['margin_top']; ?>" />
 											<?php } ?>
 											<?php if( $post['type'] == 'text'){ ?>
-												<div class="full_post_content">
-													<?php echo $post['content']; ?>
+												<div class="full_post_content i18n-multilingual-display">
+													<?php echo __($post['content']); ?>
 												</div>
 											<?php } ?>
 											<?php if( $post['type'] == 'mixed'){ ?>

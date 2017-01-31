@@ -19,8 +19,12 @@
 						"full_text_ta": {
 							"jquery": "input.full_text_ta"
 						},
+						"trans_content": {
+							"jquery": "input.trans_content"
+						},
 						"preview": {
-							"jquery": "#full_post_content"
+							"jquery": "#full_post_content",
+							"encode":"display"
 						}
 					}
 				}

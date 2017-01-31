@@ -709,7 +709,7 @@ Version: 		0.5
 	background:#fff;
 	position: absolute;
 	left: 0;
-	
+	top: -1px;
 	height:255px;
 	width:210px;
 	border: none;
