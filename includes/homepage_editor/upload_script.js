@@ -96,6 +96,8 @@ jQuery(document).ready(function($){
 						$editor.find('#img_class').val('vertical');
 						uploaded_image.type = 'vertical';
 						
+						$preview_image.css("top", "3px");
+						
 						calibrate_vertical()
 					}
 				// als de afbeelding breder is dan de post 	
@@ -104,6 +106,8 @@ jQuery(document).ready(function($){
 						$preview_image.addClass('horizontal');
 						$editor.find('#img_class').val('horizontal');
 						uploaded_image.type = 'horizontal';
+						
+						$preview_image.css("lef", "3px");
 						
 						calibrate_horizontal()
 					}
@@ -117,12 +121,16 @@ jQuery(document).ready(function($){
 					$('.editor #img_class').val('vertical');
 					uploaded_image.type = 'vertical';
 					
+					$preview_image.css("top", "3px");
+					
 					calibrate_vertical(); 
             	}
             	else{
             		$preview_image.addClass('horizontal');
             		$('.editor #img_class').val('horizontal');
             		uploaded_image.type = 'horizontal';
+            		
+            		$preview_image.css("lef", "3px");
             		
 					calibrate_horizontal()
             	}
@@ -184,7 +192,7 @@ jQuery(document).ready(function($){
 	// when scrolling the draggable function needs to be recalibrated 
 	function calibrate_horizontal(){
 		
-		var safetymarge = 5;
+		var safetymarge = 2;
 		
 		// Get with of images
 		if($('#he_full_img_preview').is('.horizontal') && $('#he_full_img_preview').is(":visible")){
@@ -202,7 +210,7 @@ jQuery(document).ready(function($){
 		// calculate constraints
 		var constraint_1 = constraint_left - ( img_width - $recentpost.width() ) + safetymarge;
 		var constraint_2 = constraint_left  - safetymarge;
-		
+				
 		$('.horizontal').draggable({
 			axis:"x",
 			containment: [constraint_1, 0 , constraint_2, 0]
