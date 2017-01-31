@@ -96,7 +96,7 @@ jQuery(document).ready(function($){
 						$editor.find('#img_class').val('vertical');
 						uploaded_image.type = 'vertical';
 						
-						$preview_image.css("top", "3px");
+						$preview_image.css("top", "-3px");
 						
 						calibrate_vertical()
 					}
@@ -107,7 +107,7 @@ jQuery(document).ready(function($){
 						$editor.find('#img_class').val('horizontal');
 						uploaded_image.type = 'horizontal';
 						
-						$preview_image.css("lef", "3px");
+						$preview_image.css("left", "-3px");
 						
 						calibrate_horizontal()
 					}
@@ -121,7 +121,7 @@ jQuery(document).ready(function($){
 					$('.editor #img_class').val('vertical');
 					uploaded_image.type = 'vertical';
 					
-					$preview_image.css("top", "3px");
+					$preview_image.css("top", "-3px");
 					
 					calibrate_vertical(); 
             	}
@@ -130,7 +130,7 @@ jQuery(document).ready(function($){
             		$('.editor #img_class').val('horizontal');
             		uploaded_image.type = 'horizontal';
             		
-            		$preview_image.css("lef", "3px");
+            		$preview_image.css("left", "-3px");
             		
 					calibrate_horizontal()
             	}
