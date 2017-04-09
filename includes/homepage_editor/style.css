@@ -40,7 +40,7 @@ nav.main_nav{
 }
 
 nav.main_nav ul{
-	padding-top:10px;
+	padding-top:8px;
 }
 
 nav.main_nav ul li{
@@ -58,8 +58,9 @@ nav.main_nav ul li:first-child{
 
 nav.main_nav ul li a {
 	text-decoration:none;
-	color:#000;
+	color:#555;
 	font-size:16px;
+	font-weight: 500;
 }
 
 nav.main_nav ul li:hover > a {
@@ -76,12 +77,12 @@ nav.main_nav ul li.current-page-parent a {
 }
 
 nav.main_nav ul li.current_page_item ul  li a {
-	color:#000; 
+	color:#555; 
 }
 
 
 nav.main_nav ul li.current_page_parent ul  li a {
-	color:#000; 
+	color:#555; 
 }
 
 nav.main_nav ul ul{
@@ -206,7 +207,7 @@ nav.main_nav li:hover > ul{
 .list_nav li a{
 	display:inline-block;
 	color:#fff;
-	padding:12px 20px;
+	padding:10px 20px;
 	width:440px;
 }
 
@@ -315,6 +316,7 @@ nav.main_nav li:hover > ul{
 
 .recent_post h2{
 	font-size:14px;
+	line-height: 1.2em;
 	color: #ea1a35;
 }
 
@@ -372,12 +374,13 @@ nav.main_nav li:hover > ul{
 	position: absolute;
 	top:130px;
 	height:125px;
-	width:195px;
+	width:180px;
 }
 
 .recent_post .post_content p{
 	font-size:12px;
 	padding-top:0.2em;
+	line-height: 1.2em;
 	width:180px;
 }
 
@@ -418,6 +421,7 @@ nav.main_nav li:hover > ul{
 	color:#fff;
 	text-transform: none;
 	line-height:1em;
+	font-family: arial;
 }
 
 .recent_post .full_post_content p{
@@ -426,6 +430,7 @@ nav.main_nav li:hover > ul{
 	line-height:1em;
 	font-weight:bold;
 	color:#fff;
+	font-family: arial;
 }
 
 .recent_post.small .full_post_content{
@@ -436,8 +441,12 @@ nav.main_nav li:hover > ul{
 .read_more {
 	position:absolute;
 	font-weight:bold;
-	left:30px;
+	left:0px;
 	top:100px;
+}
+
+.read_more p{
+	text-align: center;
 }
 
 .read_more p:after{

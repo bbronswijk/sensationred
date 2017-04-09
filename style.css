@@ -5,7 +5,7 @@
 * GitHub Theme URI:	bbronswijk/sensationred
 * Author: 			IT Laga | Bram Bronswijk   
 * Author URI: 		http://laga.nl
-* Version: 			3.6.3
+* Version: 			3.6.4
 * License: 			GNU General Public License v2 or later
 * License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: 		sensationred
@@ -46,9 +46,10 @@
 *{
 	margin:0;
 	padding:0;
-	color:#2B2B2B;
-	font-family:Arial, Helvetica, sans-serif;
+	color:#565656;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
 	font-size:14px;
+	font-weight: 300;
 }
 
 body {
@@ -65,11 +66,17 @@ iframe{
   max-width: 100%;
 }
 
+h1,h2,h3,h4,h5,h6{	
+	font-weight: 400;
+	font-family: Verdana, Helvetica, sans-serif;
+}
+
 h1{
 	font-size: 40px;
 	color:#ea1a35;
 	font-weight: bold;
 	margin-bottom:0.4em;
+	clear: both;
 }
 
 h2 {
@@ -77,6 +84,13 @@ h2 {
 	color:#ea1a35;
 	font-weight: bold;
 	text-decoration: none;
+	clear: both;
+	font-size: 16px;
+    color: #a7a7a7;
+    font-weight: bold;
+    text-decoration: none;
+    font-weight: normal;
+}
 }
 
 h2 a{
@@ -151,10 +165,10 @@ p{
 table{
 	border-spacing: 0px;
 	border-left: 1px solid #edf0f0;
+	margin-bottom: 1em;
 }
 
 tbody{
-	display:block;
 	vertical-align: middle;
 }
 
@@ -565,6 +579,10 @@ header{
 	overflow-x:hidden;
 }
 
+.content h1{
+	font-weight: 300;
+}
+
 .content_left{
 	width:60%;
 	float:left;
@@ -580,7 +598,7 @@ header{
 .content img{
 	max-width: 100%;
 	height: auto;
-	padding:15px;
+	padding: 15px 0;
 	height:auto;
 }
 
@@ -590,12 +608,34 @@ header{
 	padding:0 0 20px 0;
 }
 
+.content .wp-caption img{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.content img.alignleft{
+	margin-right: 15px;
+}
+
+.content img.alignright{
+	margin-left: 15px;
+}
+
+.content img.aligncenter{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+	clear: both;
+}
+
 .content .wp-caption-text{
 	color:#777;
 	font-style:italic;
 	font-size:12px;
 	margin-left:20px;
 	margin-top:-20px;
+	padding-top:0 ;
+	text-align: center;
 }
 
 
@@ -615,13 +655,13 @@ header{
 	font-family:Georgia;
 	font-style: italic;
 	padding:0 3em;
+	line-height: 1.5em;
 	color:#555;
 }
 
 .content p{
 	margin-bottom:1em;
-	line-height:1.5em;
-	
+	line-height:1.7em;
 }
 
 .content li{
@@ -907,6 +947,8 @@ header{
 
 .sub_sponsor{
 	float:left;
+	overflow: hidden;
+	height: 120px;
 }
 
 .sub_sponsor a> img{

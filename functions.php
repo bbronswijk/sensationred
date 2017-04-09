@@ -28,6 +28,7 @@
 			wp_deregister_script('jquery');
 			wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js','','2.2.0', true);
 			wp_enqueue_style('he_font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+			wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700'); 
 			
 			if ( is_page_template( 'sponsor-page.php' ) || is_page_template( 'charity-page.php' ) ){
 				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js','','', true);

@@ -8,9 +8,7 @@
 					get_sidebar('default');
 				}
 			?>	
-			
-
-			
+						
 			<div class="content">	
 			
 				<?php 

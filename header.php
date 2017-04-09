@@ -9,7 +9,7 @@
         
         
     </head>
-    <body  <?php body_class( $class ); ?>>    	
+    <body  <?php body_class(); ?>>    	
 		
     	<!-- header image --> 
     	<?php $header_image = get_header_image(); 
