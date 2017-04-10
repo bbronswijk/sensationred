@@ -56,7 +56,7 @@
 						$query = new WP_Query( $args );
 						if ( $query->have_posts() ): ?>
 						<div class="sub_sponsor">
-							<h4><?php _e('bussiness partners','sensationred');?></h4>
+							<h4>partners</h4>
 							<?php
 							while ( $query->have_posts() ) : $query->the_post();
 								if ( has_post_thumbnail() ){

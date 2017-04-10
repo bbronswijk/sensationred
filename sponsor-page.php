@@ -72,7 +72,7 @@
 						} // end if have posts
 				?>
 				
-				<div class="sponsoren_title"><?php _e('bussiness partners','sensationred');?></div>
+				<div class="sponsoren_title">partners</div>
 				
 				<?php 
 				wp_reset_query();
