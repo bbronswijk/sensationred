@@ -15,13 +15,14 @@
 * 0.			Reset
 * 1.			Default Items
 * 2.			Header
-* 	2.1			Qtranslate icons
-* 	2.2			Custom bg
-* 	2.3			Header Logo
+* 	2.1		Qtranslate icons
+* 	2.2		Custom bg
+* 	2.3		Header Logo
 * 3. 			Mobile Navigation
 * 4.			Container/wrapper
 * 5.			Sidebar
 * 6.			Content
+* 	6.0.5 	BLOG OVERVIEW
 * 	6.1		Posts
 * 	6.2		Page navigation
 * 	6.3		Sponsoren (clickable sponsor logos)
@@ -520,15 +521,8 @@ header{
 }
 
 /* 6.1 POST */
-.blog_post{
-	border-bottom:1px solid #b8b8b8;
-	margin-bottom:30px;
-	padding-bottom:30px;
-}
-
 .blog_title h1{
-	margin-bottom:0.2em;
-	
+	margin-bottom:0.2em;	
 	line-height: 1em;
 }
 
@@ -549,7 +543,6 @@ header{
 .blog_post_thumb img{
 	height:auto;
 	width:100%;
-	min-height:400px;	
 	padding:0;
 	margin:0;	
 }
@@ -557,6 +550,33 @@ header{
 .blog_post_content{
 	overflow:auto;
 }
+
+/* 6.1.5 BLOG OVERVIEW */
+#blog-container .blog_post{
+	width: 30%;
+	margin: 1.4%;
+	border:1px solid #b8b8b8;
+	margin-bottom:30px;
+}
+
+#blog-container .blog_post_thumb{
+	margin-bottom: 0;
+}
+
+#blog-container .blog_post_content{	
+	padding: 20px;
+}
+
+
+#blog-container .blog_post_content h2 a{
+	font-weight: bold;
+}
+
+#blog-container .blog_post_content .blog_date{
+	margin-bottom: 0;
+}
+
+
 
 /* 6.2 PAGE NAVIGATION */
 .page_navigation{
@@ -960,6 +980,7 @@ footer .copyright{
 }
 
 @media all and (max-width : 950px) {	
+
 	.sponsor_text h1{
 		font-size: 30px;
 	}
@@ -981,6 +1002,11 @@ footer .copyright{
 }
 
 @media all and (max-width : 800px) {
+	
+	#blog-container .blog_post{
+		width: 47%;
+	}
+	
 	.main .sidebar{
 		display:none;
 	}
@@ -988,9 +1014,7 @@ footer .copyright{
 	.sponsor_text h1{
 		font-size: 20px;
 	}
-	
-	
-	
+		
 	.hoofd_sponsor{
 		height: 70px;
 	}
@@ -1028,8 +1052,17 @@ footer .copyright{
 		display: none;
 	}
 	
+	
 }
 
+
+@media all and (max-width: 580px){	
+	
+	#blog-container .blog_post{
+		width: 97%;
+	}
+
+}
 
 @media all and (max-width: 480px){	
 	.sponsoren{

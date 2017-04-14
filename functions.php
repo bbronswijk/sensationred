@@ -47,6 +47,10 @@
 			  wp_enqueue_style( 'floating-social-bar', get_template_directory_uri() . '/css/floating_social_bar.css');
 			} 
 			
+			//if(is_category() ){
+				wp_enqueue_script( 'masonry-js', get_template_directory_uri().'/js/masonry.pkgd.min.js', array('jquery'), '1.1.0', true );
+			//}
+			
 			// include stylesheet for woocommerce
 			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 				wp_enqueue_style( 'woocommerce-theme-style', get_template_directory_uri() . '/css/woocommerce.css');

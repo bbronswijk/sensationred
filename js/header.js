@@ -29,5 +29,12 @@ jQuery(document).ready(function($){
 	        $('#viewport').attr('content','width=500');
 	    }
 	}
+	
+	/* grid van nieuws overzicht */
+	setTimeout(function(){  
+		$('#blog-container').masonry({
+			  itemSelector: '.blog_post'
+		});
+	}, 300);
 
 });

@@ -3,18 +3,13 @@
 	<?php get_header(); ?>
 	<div class="container main">	
 		<div class="wrapper">
-			
-			<!-- If there is an active sidebar show it --> 	
-			<?php
-				if ( is_active_sidebar('default') ) {
-					get_sidebar('default');
-				}
-			?>	
-			
+						
 			<div class="content">		
-
+			<h1 style="margin-left: 1.4%;">Nieuwsarchief</h1>
 			<?php 
 			if ( have_posts() ) {
+					echo '<div id="blog-container">';
+					
 					while ( have_posts() ) {
 						?>
 						<article class="blog_post">
@@ -34,8 +29,8 @@
 							<div class="blog_post_content"> 
 								<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 								<p class="blog_date"><?php _e( 'Published on: ','sensationred'); echo get_the_date(); ?></p>
-								<?php the_content('<p>Read more &rarr;</p>');?>
-															
+								<?php the_excerpt();?>
+								<a href="<?php the_permalink() ?>"><?php _e( 'Read more','sensationred'); ?></a>							
 							</div>
 							
 						</article>
@@ -44,6 +39,7 @@
 					
 					} // end while
 					?>	
+					</div>
 					<div class="page_navigation">
 						<?php
 						if ( get_previous_posts_link()){

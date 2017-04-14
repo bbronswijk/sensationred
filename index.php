@@ -10,7 +10,6 @@
 			?>	
 			
 			<div class="content">	
-				
 			 <?php rewind_posts(); ?>
 			<?php 
 					while ( have_posts() ) {
