@@ -71,6 +71,10 @@ nav.main_nav ul li.current-menu-parent > a {
 	color:#ea1a35; 
 }
 
+nav.main_nav ul li.menu-item-has-children{
+	padding-right:13px;
+}
+
 nav.main_nav ul li.menu-item-has-children:after{
 	content: "\f107";
 	font-family: fontawesome;
