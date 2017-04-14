@@ -544,21 +544,16 @@ header{
 
 .blog_post_thumb {
 	width:100%;
-	height:200px;
-	overflow:hidden;
-	
+	overflow:hidden;	
 	margin-bottom:2em;
 }
 
 .blog_post_thumb img{
 	height:auto;
-	
 	width:100%;
-	min-height:400px;
-	
+	min-height:400px;	
 	padding:0;
 	margin:0;	
-	margin-top:-25%;
 }
 
 .blog_post_content{
