@@ -5,7 +5,7 @@
 * GitHub Theme URI:	bbronswijk/sensationred
 * Author: 			IT Laga | Bram Bronswijk   
 * Author URI: 		http://laga.nl
-* Version: 			3.6.4
+* Version: 			3.6.5
 * License: 			GNU General Public License v2 or later
 * License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: 		sensationred
@@ -33,7 +33,7 @@
 *  
 * 
 * OTHER STYLESHEETS
-* nav.css									Stylesheet for header ( loaded on all pages except homepage )
+* nav.css									Stylesheet for header en menu ( loaded on all pages )
 * homepage_editor/style.css					Stylesheet homepage ( alleen op homepage )
 * editor_style.css							Stylesheet to style the text in the text editor in admin
 * nggallery.css								Stylesheet for NextGEN Gallery plugin
@@ -134,13 +134,13 @@ a{
 	text-decoration: none;
 	-webkit-transition-property:color, text;
 	-webkit-transition-duration: 0.2s;
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-timing-function: linear;
 	-moz-transition-property:color, text;
-	-moz-transition-duration:1s;
-	-moz-transition-timing-function: linear, ease-in;
+	-moz-transition-duration:0.2s;
+	-moz-transition-timing-function: linear;
 	-o-transition-property:color, text;
-	-o-transition-duration:1s;
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-duration:0.2s;
+	-o-transition-timing-function: linear;
 }
 
 ol, ul{
@@ -277,155 +277,6 @@ header{
 	
 }
 
-/* 3. RESPONSIVE MENU */
-.navicon {
-	display:none;
-    position: absolute;
-    z-index:2000;
-    right:7%;
-    height: 26px;
-    width:100px;
-    float:right;
-    margin-top:50px;
-}
-
-.nav-toggle {
-    float:right;
-    z-index: 999999;
-    padding: 10px 35px 16px 0px;
-    cursor: pointer;
-}
-.nav-toggle:focus {
-    outline: none;
-}
-.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 35px;
-    height: 5px;
-    border-radius: 1px;
-    background: #414141;
-    cursor: pointer;
-}
-.nav-toggle span:before {
-    top: -10px;
-}
-.nav-toggle span:after {
-    bottom: -10px;
-}
-.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-}
-
-.navicon.active{
-	top:3% !important;
-	position: fixed !important;
-}
-
-.navicon.active p{
-	color: #fff;
-}
-
-.navicon.active .nav-toggle span {
-    background-color: transparent
-}
-.navicon.active .nav-toggle span:before, .nav-toggle.active span:after {
-    top: 0
-}
-.navicon.active .nav-toggle span:before {
-	background:#fff;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-.navicon.active .nav-toggle span:after {
-	background:#fff;
-    top: 10px;
-    -webkit-transform: translateY(-10px) rotate(-45deg);
-    -ms-transform: translateY(-10px) rotate(-45deg);
-    transform: translateY(-10px) rotate(-45deg);
-}
-
-
-/* overlay menu for small screens */
-.nav_overlay {
-	position: fixed;
-	z-index:1000;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	overflow-x:hidden;
-	overflow-y:auto;
-	-webkit-overflow-scrolling:touch;
-    visibility: hidden;
-    display:none;
-    opacity: 0;
-    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
-    transition: opacity 0.5s, visibility 0s 0.5s;
-    text-align:center;
-}
-
-.nav_overlay.open {
-	display:block;
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: opacity 0.5s;
-    transition: opacity 0.5s;
-}
-
-.nav_overlay nav{
-	position: static;
-	box-sizing:content-box;
-	background: rgba(51, 51, 51, 0.95);
-	width: 70%;
-	margin: 0 auto 0 auto;
-	min-height:100%;
-	padding: 100px 15%; 
-}
-
-.nav_overlay nav ul li:first-child{
-	border-top: 1px solid #666;
-}
-
-.nav_overlay nav ul li{
-	border-bottom: 1px solid #666;
-	list-style:none;
-   	margin: 0;
-   	
-   	-webkit-transform: translate3d(0, -80px, 0);
-    transform: translate3d(0, -80px, 0);
-    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
-    transition: transform 0.5s, opacity 0.5s;  
-    
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.nav_overlay nav ul li a{	
-	display: inline-block;
-   	padding: 15px 0; 
-   	color:#fff;
-	text-decoration:none;
-	font-size: 18px;
-}
-
-.nav_overlay nav ul li:hover > a{
-	opacity: 0.5;
-}
-
-.nav_overlay nav ul li ul{
-	margin: 0;
-}
-
-.nav_overlay nav ul li ul a{
-	opacity: 0.5;
-}
 
 
 /* 4. CONTAINER/WRAPPER */
@@ -1170,9 +1021,6 @@ footer .copyright{
 		width: 90%;
 	}
 	
-	.navicon {
-		display: block;
-	}
 	
 	.background_footer .footer_widgets .widget:nth-child(4) {
 		display:none;

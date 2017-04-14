@@ -4,10 +4,10 @@
 }
 
 .recentpost_widget h1{
-	font-size:16px;
 	margin-bottom:0.7em;
-	font-size:25px;
-	color:#000;
+	font-size:20px;
+	font-weight: normal;
+	color:#555;
 }
 
 .recentpost_widget .RPwidget_recent_post {
