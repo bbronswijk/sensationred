@@ -218,6 +218,8 @@
 		// Create the category hoofdsponsor
 		wp_insert_category(array('cat_name' => 'hoofdsponsor', 'taxonomy' => 'sponsor_type'));
 		wp_insert_category(array('cat_name' => 'partner', 'taxonomy' => 'sponsor_type'));	
+		wp_insert_category(array('cat_name' => 'leverancier', 'taxonomy' => 'sponsor_type'));
+		
 		wp_insert_category(array('cat_name' => 'news', 'taxonomy' => 'post'));
 		if(get_option('charity_option')=="show"){  	
 			register_post_type( 'charity', array(
