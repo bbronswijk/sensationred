@@ -301,17 +301,15 @@ header{
 
 
 .wrapper__404{
-	font-size:450px;
+	font-size:250px;
 	text-align:center;
 	color:#fff;
 	font-weight:bold;
-	margin-top:-60px;
 }
 
 .wrapper__error{
 	text-align:center;
 	font-size:20px;
-	margin-top:-60px;
 }
 
 .error_link{
