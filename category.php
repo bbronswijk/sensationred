@@ -21,7 +21,7 @@
 							
 								if ( has_post_thumbnail() ) {
 									?> <div class="blog_post_thumb"> <?php
-									the_post_thumbnail();
+									the_post_thumbnail('medium');
 									?> </div> <?php
 								} 
 								?>								
