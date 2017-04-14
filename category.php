@@ -28,7 +28,7 @@
 							
 							<div class="blog_post_content"> 
 								<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-								<p class="blog_date"><?php _e( 'Published on: ','sensationred'); echo get_the_date(); ?></p>
+								<p class="blog_date"><?php _e( 'Published on: ','sensationred'); echo get_the_date('j F, Y'); ?></p>
 								<?php the_excerpt();?>
 								<a href="<?php the_permalink() ?>"><?php _e( 'Read more','sensationred'); ?></a>							
 							</div>
