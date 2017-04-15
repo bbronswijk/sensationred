@@ -183,6 +183,12 @@
 	 	
 	// hide option page github update
 	add_filter( 'github_updater_hide_settings', '__return_true' );
+	
+	function theme_edit_admin_menu() {
+		remove_menu_page( 'edit-comments.php' );
+		remove_menu_page( 'link-manager.php' );	
+	}
+	add_action( 'admin_menu', 'theme_edit_admin_menu' );
 		
 	function customize_background( $wp_customize ) {
 		// verwijder de opties die standaard staan ingesteld. 	 
