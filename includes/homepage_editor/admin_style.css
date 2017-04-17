@@ -568,7 +568,7 @@ Version: 		0.5
 	font-size: 12px;
 }
 
-.extra_option p{
+.extra_option p, .buttons p{
 	font-size: 10px;
 	font-style: italic;
 	text-align: left;
@@ -774,8 +774,39 @@ img.examples{
 	box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.4);
 }
 
+.toggle_example{
+	position: relative;
+}
+
 .toggle_example:hover img.examples{
 	display: block;
 }
 
+.extra-uitleg img.examples{
+	bottom: 20px;
+}
+
+.extra-uitleg{
+	position: absolute;
+	background: #fff;
+	left: -280px;
+	top: 10px;
+	width: 200px;
+	padding: 25px;
+}
+
+.extra-uitleg:after{
+	content: '';
+	position: absolute;
+	right: -12px;
+	top: 90px;
+	border-top: 15px solid transparent;
+	border-left: 15px solid #fff;
+	border-bottom: 15px solid transparent;
+	
+}
+.extra-uitleg > img{
+	width: 100%;
+	heihgt: auto;
+}
 

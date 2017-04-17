@@ -98,7 +98,16 @@
 												</div>
 							               		<!-- full text small text --> 
 								          		<div class="buttons">
-													<div class="button_h1 button-secondary"><strong>A &rarr; a</strong></div>
+								          		
+													<div class="extra-uitleg">
+														<h1>Richtlijnen</h1>
+														<hr>
+														<p>Bij deze optie is het de bedoeling dat je begint met een grote tekst en afsluit met een kleinere subtekst. Je moet even een beetje spelen met de juiste woorden zodat het vlak gelijkmatig wordt gevuld.</p> 
+														<img src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/example.jpg" />
+														<p> Bekijk ook de <a href="#" class="toggle_example">voorbeelden <img src="<?php echo get_template_directory_uri(); ?>/includes/homepage_editor/examples.png" class="examples"/></a></p>					
+													</div>
+													<p>Kleine tekst weergeven? Selecteer de tekst en klik op de onderstaande knop</p>
+													<div class="button_h1 button-secondary"><strong>Kleine tekst</strong></div>
 												</div>
 												
 											</div>

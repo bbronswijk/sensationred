@@ -1,5 +1,30 @@
 /**
  * @author Bram Bronswijk
+ * 
+ * De Homepage editor bestaat uit een visual editor en een textarea
+ * Bij het opslaan van de een post wordt de visual editor gesyncht met het textarea 
+ * Vervolgens wordt de content van de text area naar de database gesaved
+ * 
+ * Visual editor <-> textarea -> Database
+ * 
+ * Doordat de Damen Raceroei Regatta en de Ringvaart gebruik maken van de qtranslate plugin 
+ * moet er rekening worden gehouden met de extra vertaling
+ * 
+ * Bij het switchen van taal in de editor wordt de inactieve taal tijdelijk in een verborgen input field gestored.
+ * Wanneer de  content van het textarea naar de database wordt gesaved moet daarom ook deze verborgen input hiermee worden genomen.
+ * Dit gebeurt in de functie helemaal onderaan deze pagina.
+ * 
+ * NB. De vertaling is alleen mogelijk in de full text optie en niet in de mixed content (afb. + tekst)
+ * 
+ * VISUAL EDITOR
+ * de visual editor werkt met een contenteditable div. Hierdoor kan de gebruiker direct zien hoe het uiteindelijke resultaat er uit komt te zien
+ * 
+ * DRAGGABLE
+ * Om de afbeeldingen optimaal te kunnen weergeven is er de optie om de afbeeldingen te verslepen. Hiervoor wordt de jquery-ui draggable optie gebruikt.
+ * 
+ * 
+ * 
+ * 
  */
 
 jQuery(document).ready(function($){
@@ -32,7 +57,7 @@ jQuery(document).ready(function($){
 	    }
     }, 300);
 
-    
+    /* DE Wordpress add Image button */
     $('.he_upload_image_button').click(function(e) {
  		upload_field_id = jQuery(this).attr('id').replace ( /[^\d.]/g, '' );
  		
@@ -234,6 +259,7 @@ jQuery(document).ready(function($){
 			// if post has custom class
 			var post_class = $box.attr('class').replace('recent_post','').replace('clickable','').replace('empty_post','').trim();
 			$('#custom_class').val(post_class);
+			console.log('custom_class: '+post_class);
 			
 
 			// if post was clickable set field
@@ -716,6 +742,7 @@ jQuery(document).ready(function($){
 		box_type = $('.editor #box_type').val();
 		page_url = $('.editor #page_url').val();
 		custom_class = $('.editor #custom_class').val();
+		
 				
 		if(box_type == 'image'){
 			src= $('#he_full_img_preview').attr('src');
@@ -756,41 +783,19 @@ jQuery(document).ready(function($){
 								
 				// sync editor -> box
 				sync_translate_box(box_id);
-				
-				console.log('cur_lang'+cur_lang);
-				console.log('textarea'+$('.full_text_ta').val());
-				
-				// DEZE NIET MEER GEBRUIKEN
-				// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
-				// daarom moet je de content uit het textarea pakken				
-				/*
-				if( !$('.full_text_ta').is(':hidden') ){
-					console.log('visual editor hidden');
-					content = '[:'+cur_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val()
-				}else{
-					console.log('visual editor visible');
-					content = '[:'+cur_lang+']' + $('.full_text_ta').val();
-				}
-				*/
-				
+								
 				// Get de current language always from the textarea
 				content = '[:'+cur_lang+']' + $('.full_text_ta').val();
-				
-				console.log('cur lang content: '+content);
-									
+													
+				// other language content is stored in hidden qtranslate input
 				if( $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val().length > 0){
 					content += '[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val();
-					console.log('other lang content: '+'[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val());
 				}					
-				
-				// als de content nog steeds leeg is pak alles uit het openstaande textarea
-				if( content.length == 0 ){
-					content = $('.full_text_ta').val();
-				}
+
 				
 			}
 			
-			console.log('content -> db:'+ content);
+			//console.log('content -> db:'+ content);
 			
 			data = { 
 				action 		: 	'save_box_db',
@@ -824,7 +829,9 @@ jQuery(document).ready(function($){
 			};
 		}
 		
-		
+		// set custom class // even when empty and remove existing classes
+		$box = $('#'+box_id).attr('class', 'recent_post');		
+		$box = $('#'+box_id).addClass(custom_class);
 		
 		jQuery.post(ajaxurl,data,function(response){
 			
