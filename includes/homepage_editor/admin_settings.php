@@ -83,6 +83,7 @@
 												</div>	
 												<!-- image upload button --> 
 												<div class="buttons">
+												<p>Lukt het niet om de afbeelding te verslepen? Scroll even met de muis kort en op en neer. Of laad de afbeelding even opnieuw. 
 													<input id="he_upload_image_button_1" class="he_upload_image_button button-secondary " type="button" value="Upload Image" />
 												</div>
 												
