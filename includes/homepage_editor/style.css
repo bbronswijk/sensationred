@@ -634,7 +634,7 @@
 		font-size: 14px;
 	}
 	
-	.main_home{
+	.main_home, .home .wrapper{
 		width:680px;
 	}
 	
