@@ -14,11 +14,6 @@
  */
 
 
-@font-face {
-	font-family: FontAwesome;
-	src: url('FontAwesome.otf');
-}
-
 /* 1. HEADER */
 
 
@@ -145,19 +140,23 @@
 /* 2.2 COLUMNS */
 .column{
 	float:left;
+	position: relative;
 }
 
 #column1{
 	width:450px;
+	position: relative;
 }
 
 #column2{
 	width:225px;
 	float:left;
+	position: relative;
 }
 
 #column3{
 	width:225px;
+	position: relative;
 }
 
 /* 2.3 EVENT TRAILER IFRAME */
@@ -188,6 +187,7 @@
 .recent_posts{
 	width:225px;
 	float:left;
+	position: relative;
 }
 
 .recent_post{

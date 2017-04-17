@@ -143,15 +143,18 @@ Version: 		0.5
 
 #column1{
 	width:450px;
+	position: relative;
 }
 
 #column2{
 	width:225px;
 	float:left;
+	position: relative;
 }
 
 #column3{
 	width:225px;
+	position: relative;
 }
 
 /* BLACK BOX WITH SHORTCUTS TO PAGES */
