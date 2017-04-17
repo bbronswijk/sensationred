@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){ 
 	function itSupport(){
 		
-		var base_url = window.location.origin.replace('#', '')+'/wordpress/wp-admin/';
+		var base_url = window.location.origin.replace('#', '')+'/wp-admin/';
 
 								
 		var support = {
