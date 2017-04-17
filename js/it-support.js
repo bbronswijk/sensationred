@@ -1,13 +1,20 @@
 jQuery(document).ready(function($){ 
 	function itSupport(){
 		
-		var base_url = window.location.origin.replace('#', '')+'/wp-admin/';
-
+		var base_url = window.location.origin.replace('#', '');
+		
+		if( base_url === 'http://127.0.0.1:4001' )
+			base_url = 'http://127.0.0.1:4001/wordpress';
+		
+		var base_url = base_url + '/wp-admin/';
+		
+		var customizer_url = ($('#wp-admin-bar-customize a').attr('href') != null )? $('#wp-admin-bar-customize a').attr('href').replace(base_url,'') : '';
+		
 								
 		var support = {
 			header_logo: {
 							location : '.header_logo:has(.header_logo)',
-							admin : 'customizer.php',
+							admin : customizer_url,
 						},
 			featured_img : {
 							location : '.header_logo:has(.attachment-post-thumbnail), .page-template-default .content',
