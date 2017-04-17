@@ -98,7 +98,7 @@
 												</div>
 							               		<!-- full text small text --> 
 								          		<div class="buttons">
-													<div class="button_h1 button-secondary"><strong>Ii</strong></div>
+													<div class="button_h1 button-secondary"><strong>A &rarr; a</strong></div>
 												</div>
 												
 											</div>

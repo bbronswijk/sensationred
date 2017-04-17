@@ -405,6 +405,8 @@ Version: 		0.5
 	margin-top:25px;
 	color:#fff;
 	text-transform: none;
+	line-height: 16px;
+	font-weight: bold;
 }
 
 .recent_post .full_post_content p{

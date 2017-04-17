@@ -708,6 +708,7 @@ jQuery(document).ready(function($){
 	// 4. ajax call to database	
 	// 5. save editor content to post ( from textarea )
 	$('.save_box').click(function(){
+		// visual editor -> textarea
 		sync_visual_editor();
 		
 		box_id = $('.editor #box_id').val();
@@ -741,7 +742,7 @@ jQuery(document).ready(function($){
 			if(qtranslate_active === false){
 				content = $('.full_text_ta').val();
 			} else{
-				
+				console.log('-------------------');
 				content = '';
 				
 				// get current language
@@ -751,20 +752,35 @@ jQuery(document).ready(function($){
 					var other_lang = 'en';
 				} else{
 					var other_lang = 'nl';
-				}				
+				}	
+								
+				// sync editor -> box
+				sync_translate_box(box_id);
 				
+				console.log('cur_lang'+cur_lang);
+				console.log('textarea'+$('.full_text_ta').val());
+				
+				// DEZE NIET MEER GEBRUIKEN
 				// Wanneer de visual editor open staat wordt de qtranslate input niet geupdate 
 				// daarom moet je de content uit het textarea pakken				
-				if( $('.full_text_ta').is(':hidden') ){
-					if( $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val().length > 0 ){
-						content = '[:'+cur_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val()
-					}
+				/*
+				if( !$('.full_text_ta').is(':hidden') ){
+					console.log('visual editor hidden');
+					content = '[:'+cur_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+cur_lang+"]']").val()
 				}else{
+					console.log('visual editor visible');
 					content = '[:'+cur_lang+']' + $('.full_text_ta').val();
-				}				
+				}
+				*/
+				
+				// Get de current language always from the textarea
+				content = '[:'+cur_lang+']' + $('.full_text_ta').val();
+				
+				console.log('cur lang content: '+content);
 									
 				if( $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val().length > 0){
 					content += '[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val();
+					console.log('other lang content: '+'[:'+other_lang+']' + $("input[name='qtranslate-fields[full_text_ta]["+other_lang+"]']").val());
 				}					
 				
 				// als de content nog steeds leeg is pak alles uit het openstaande textarea
@@ -772,10 +788,9 @@ jQuery(document).ready(function($){
 					content = $('.full_text_ta').val();
 				}
 				
-				// sync editor -> box
-				sync_translate_box(box_id);
-				
 			}
+			
+			console.log('content -> db:'+ content);
 			
 			data = { 
 				action 		: 	'save_box_db',
@@ -793,7 +808,7 @@ jQuery(document).ready(function($){
 			img_class = $('.editor #img_class').val();
 			img_id = $('.editor #img_id').val();
 			content = $('.editor .mixed_ad_ta').val();
-			
+						
 			data = { 
 				action 		: 	'save_box_db',
 				box_id 		: 	box_id,
