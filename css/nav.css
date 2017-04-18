@@ -184,14 +184,13 @@ nav.main_nav ul li.mega-menu ul li.name-mega-menu{
 	margin: 0;
 	margin-top: -9px;
 	margin-right: 2%;
-	padding: 8px 20px;
-	padding-top: 15px;
+	padding: 15px 25px 8px 25px;
 	width: 25%;
 	background: #3e4750;
 	color: #fff;
 }
 
-.mega-menu ul li.name-mega-menu a{
+.mega-menu ul li.name-mega-menu a, .mega-menu ul li.name-mega-menu  a.current-menu-item{
 	color: #fff;
 	font-size: 22px;
 	padding-left: 0;
