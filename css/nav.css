@@ -82,7 +82,7 @@ nav.main_nav ul li.menu-item-has-children{
 nav.main_nav ul li.menu-item-has-children:after{
 	content: "\f107";
 	font-family: fontawesome;
-	margin-left: 5px;
+	margin-left: -10px;
 }
 
 nav.main_nav ul ul li.menu-item-has-children:after{
