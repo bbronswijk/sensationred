@@ -147,7 +147,10 @@ nav.main_nav ul li ul li:hover ul {
 /* mega menu */
 .home nav.main_nav ul li.mega-menu ul{	
 	margin-top: 12px;
-	border-top: 5px solid #3e4750;
+}
+
+nav.main_nav ul li.mega-menu ul{	
+	border-top: 3px solid #3e4750;
 }
 
 nav.main_nav ul li.mega-menu ul{
@@ -190,7 +193,7 @@ nav.main_nav ul li.mega-menu ul li.name-mega-menu{
 	color: #fff;
 }
 
-.mega-menu ul li.name-mega-menu a, .mega-menu ul li.name-mega-menu  a.current-menu-item{
+.mega-menu ul li.name-mega-menu a, .mega-menu ul li.name-mega-menu.current-menu-item  a{
 	color: #fff;
 	font-size: 22px;
 	padding-left: 0;
