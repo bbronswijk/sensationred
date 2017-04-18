@@ -180,6 +180,9 @@
 	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
 	require_once 'includes/support/support.php';
 	
+	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
+	require_once 'includes/mega-menu.php';
+	
 	// add personal access token
 	add_filter( 'github_updater_token_distribution', function (){
         return array( 'sensationred' => 'ad7d38ac2a719f549ff1e959158efab380bb3a52' );
