@@ -165,11 +165,8 @@
 			   				
 			   				<div id="column1" class="column">
 			   					<div class="shortcut_menu">
-									<div class="title">
-										<h1><?php bloginfo( 'name' ); ?></h1>	
-									</div>
+									<div class="title"><h1><?php bloginfo( 'name' ); ?></h1></div>
 									<?php wp_nav_menu( array( 'theme_location' => 'shortcut-menu', 'container_class' => 'list_nav') ); ?> 
-									<div class="bg_sc_menu">background</div>
 								</div>
 								
 								
