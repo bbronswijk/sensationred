@@ -181,7 +181,7 @@
 	require_once 'includes/support/support.php';
 	
 	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
-	//require_once 'includes/mega-menu.php';
+	require_once 'includes/mega-menu.php';
 	
 	// add personal access token
 	add_filter( 'github_updater_token_distribution', function (){

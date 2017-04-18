@@ -59,6 +59,7 @@ nav.main_nav ul li a {
 	color:#555;
 	font-size:16px;
 	font-weight: 500;
+	padding-bottom: 24px;
 }
 
 nav.main_nav ul li:hover > a {
