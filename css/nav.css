@@ -59,7 +59,8 @@ nav.main_nav ul li a {
 	color:#555;
 	font-size:16px;
 	font-weight: 500;
-	padding: 0 20px 24px 20px;
+	padding: 0 15px 24px 15px;
+	line-height: 20px;
 }
 
 nav.main_nav ul li:hover > a {
@@ -398,13 +399,11 @@ nav.main_nav ul li.mega-menu ul li.featured a h3{
  * 
  */
 
-@media all and (max-width : 1000px){
-	nav.main_nav ul li{
-		padding: 3px 16px;
-	}
-	
+@media all and (max-width : 1000px){	
 	nav.main_nav ul li a{
 		font-size: 15px;
+		padding-left: 10px;
+		padding-right: 10px
 	}
 	
 	.wrapper{
@@ -413,23 +412,22 @@ nav.main_nav ul li.mega-menu ul li.featured a h3{
 	}
 }
 
-@media all and (max-width : 920px) {
-	nav.main_nav ul li{
-		padding: 3px 12px;
-	}
-	
+@media all and (max-width : 920px) {	
 	nav.main_nav ul li a{
 		font-size: 14px;
+		line-height: 22px;
+		padding-left: 10px;
+		padding-right: 10px
 	}
 }
 
 
 @media all and (max-width : 800px) {	
-	nav.main_nav ul li:first-child{
-		margin-left:12px;
+	nav.main_nav ul li:first-child a{
+		margin-left:0px;
 	}
 	
-	nav.main_nav ul li{
+	nav.main_nav ul li a{
 		padding: 3px 10px;
 	}
 }
