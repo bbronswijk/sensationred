@@ -96,7 +96,7 @@
 }
 
 .list_nav li a{
-	display:inline-block;
+	display:block;
 	color:#fff;
 	padding:10px 20px;
 	width:440px;
