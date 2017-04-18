@@ -24,8 +24,12 @@ jQuery(document).ready(function($){
 							location : '.main_nav',
 							admin : 'nav-menus.php',
 						},	
-			shortcut_menu: {
+			shortcut_titel: {
 							location : '.shortcut_menu',
+							admin : 'options-general.php',
+						},	
+			shortcut_menu: {
+							location : '#menu-shortcut_nav',
 							admin : 'nav-menus.php',
 						},
 			news_posts: {
