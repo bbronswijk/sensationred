@@ -18,9 +18,14 @@ jQuery(document).ready(function($){
 								tooltip : 'Customizer: header image'
 							},
 				featured_img : {
-								location : '.header_logo:has(.attachment-post-thumbnail), .page-template-default .content',
+								location : '.header_logo:has(.attachment-post-thumbnail)',
 								admin : $('#wp-admin-bar-edit a').attr('href').replace(base_url,''),
 								tooltip : 'Uitzondering: featured image'
+							},
+				content : {
+								location : '.page-template-default .content',
+								admin : $('#wp-admin-bar-edit a').attr('href').replace(base_url,''),
+								tooltip : 'Edit content pagina'
 							},
 				main_navigation: {
 								location : '.main_nav',
@@ -63,7 +68,7 @@ jQuery(document).ready(function($){
 								location : '.ngg-albumoverview, .ngg-galleryoverview',
 								admin : 'admin.php?page=nextcellent-gallery-nextgen-legacy',
 								tut : 'http://wordpress.laga.nl/foto-album/',
-								tooltip : 'Gallery'
+								tooltip : 'NextCellent Gallery'
 							},	
 				sponsoren_overview : {
 								location : '.page-template-sponsor-page .content.sponsoren_overview',
