@@ -23,6 +23,12 @@ jQuery(document).ready(function($){
 				main_navigation: {
 								location : '.main_nav',
 								admin : 'nav-menus.php',
+							},
+				mega_menu: {
+								location : 'li.mega-menu ul',
+								admin : 'nav-menus.php',
+								tut : 'http://wordpress.laga.nl/mega-menu/',
+								css_class : 'support-mega-menu'
 							},	
 				shortcut_titel: {
 								location : '.shortcut_menu',
@@ -59,8 +65,7 @@ jQuery(document).ready(function($){
 							},							
 				faq : {
 								location : '.faq',
-								admin : 'admin.php?page=faq_page',
-								tut : 'http://wordpress.laga.nl/foto-album/'
+								admin : 'admin.php?page=faq_page'
 							},	
 				social_media : {
 								location : '.widget.social-media',

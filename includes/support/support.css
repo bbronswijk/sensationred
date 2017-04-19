@@ -64,6 +64,15 @@ a.support-footer{
 	margin-top: -10px !important;
 }
 
+a.support-mega-menu{
+	color: #fff !important;
+	padding: 0 !important;
+	font-weight: bold !important;
+	font-size: 18px !important;
+	line-height: 19px !important;
+	padding-top: 3px !important;
+}
+
 @-webkit-keyframes bounce {
 	0% { -webkit-transform:translateY(0px); -webkit-animation-timing-function: ease-in; }
 	16% { -webkit-transform:translateY(-60px); -webkit-animation-timing-function: ease-out; }
