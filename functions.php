@@ -36,8 +36,8 @@
 			}			
 			wp_enqueue_script( 'sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','','', true);
 			wp_enqueue_script( 'mobile_nav_script', get_template_directory_uri() . '/js/header.js','','', true);
-			wp_enqueue_style('default_stylesheet', get_template_directory_uri().'/style.css','','3.6.8');
-			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','','3.6.5');
+			wp_enqueue_style('default_stylesheet', get_template_directory_uri().'/style.css','','3.6.9');
+			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','','3.6.9');
 			
 			// double tap to go is een script dat dropdown menu's mogelijk maakt op touch devices. Dit is voor ipad belangrijk!!
 			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js','','', true);
@@ -156,23 +156,28 @@
 	// customizer settings
 	require_once 'includes/customizer.php';
 	
-	// register dashboard widget 
+	
+	
+	// register dashboard widget
 	require_once 'includes/dashboard-widget.php';
 	
+	// register dashboard welkom widget 
+	require_once 'includes/dashboard-welcome-widget.php';
+	
 	// create option to set a default post image
-	require_once('includes/default_post_img/default_post_img.php');	
+	require_once 'includes/default_post_img/default_post_img.php';	
 	
 	// shorten very long post titles of the page navigation on signle posts
-	require_once('includes/shorten_page_nav.php');	
+	require_once 'includes/shorten_page_nav.php';	
 	
 	// add footer options
-	require_once('includes/footer_options/add_footer_items.php');
+	require_once 'includes/footer_options/add_footer_items.php';
 		
 	// recent newspost widget
-	require_once('includes/recent_newspost/recentnewspost.php');
+	require_once 'includes/recent_newspost/recentnewspost.php';
 	
 	// custom homepage post
-	require_once('includes/homepage_editor/homepage-editor.php');
+	require_once 'includes/homepage_editor/homepage-editor.php';
 	
 	// register sidebar option for page editor
 	require_once 'includes/sidebar-option.php';

@@ -150,7 +150,6 @@ nav.main_nav ul li ul li:hover ul {
 }
 
 nav.main_nav ul li.mega-menu ul{	
-	border-top: 3px solid #3e4750;
 }
 
 nav.main_nav ul li.mega-menu ul{
@@ -165,6 +164,8 @@ nav.main_nav ul li.mega-menu ul{
     left: 30px;
     width: calc( 100% - 40px );
     padding-top: 8px;
+	overflow: hidden;
+	border-top: 3px solid #3e4750;
 }
 
 
@@ -453,6 +454,10 @@ nav.main_nav ul li.mega-menu ul li.featured a span.sub{
 	
 	.navicon {
 		display: block;
+	}
+	
+	.name-mega-menu > a{
+		display: none !important;
 	}
 }
 
