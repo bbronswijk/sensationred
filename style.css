@@ -588,6 +588,7 @@ header{
 
 #blog-container .blog_post_thumb{
 	margin-bottom: 0;
+	width: 100%;
 }
 
 #blog-container .blog_post_content{	
@@ -601,6 +602,7 @@ header{
 
 #blog-container .blog_post_content .blog_date{
 	margin-bottom: 0;
+	text-align: left;
 }
 
 
