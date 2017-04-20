@@ -391,10 +391,8 @@ header{
 }
 
 .sidebar .widget_nav_menu{
-  border: 1px solid #e6e6e6;
   margin:0;
-  padding: 15px;
-  margin: 30px 10%;
+  padding: 40px 20px;
 }
 
 .sidebar .widget_nav_menu .menu {
