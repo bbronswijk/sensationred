@@ -335,9 +335,14 @@ header{
 /* 5. SIDEBAR */
 .sidebar{
 	float:left;
-	width:28%;
-	padding:4% 0 0 2%;
+	width:25%;
+	padding: 0;
 	height:100%;
+}
+
+.page-template-sidebar-page .sidebar{
+	float: right;
+	border-left: 1px solid #ccc;
 }
 
 .recentpost_widget .addthis_toolbox{
@@ -372,6 +377,10 @@ header{
 	list-style:none;
 }
 
+.sidebar .widget_text{
+	padding: 0 5%;
+}
+
 .sidebar .widgettitle{
 	color: #666;
 	font-size:14px; 
@@ -385,6 +394,7 @@ header{
   border: 1px solid #e6e6e6;
   margin:0;
   padding: 15px;
+  margin: 30px 10%;
 }
 
 .sidebar .widget_nav_menu .menu {
@@ -426,22 +436,25 @@ header{
 
 /* 6. CONTENT */
 .content{
-	padding:4%;
+	padding:4% 6%;
 	overflow-y:auto;
 	overflow-x:hidden;
 	position: relative;
+	border-left: 1px solid #ccc;
+}
+
+.content_left{
+	width: calc( 63% - 1px );
+	float:left;	
+	overflow:auto;
+	border-left: none;
 }
 
 .content h1{
 	font-weight: 300;
-}
-
-.content_left{
-	width:60%;
-	float:left;
-	padding:4%;
-	padding-right:0;	
-	overflow:auto;
+	padding-bottom: 20px;
+	font-family: Open Sans, Arial, sans-serif;
+	border-bottom: 1px solid #ccc;
 }
 
 .content div{
@@ -1014,6 +1027,10 @@ footer .copyright{
 	
 	.main .sidebar{
 		display:none;
+	}
+	
+	.content_left{
+		width: 88%;
 	}
 	
 	.sponsor_text h1{
