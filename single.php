@@ -12,23 +12,19 @@
 			
 
 			
-			<div class="content">	
+			<div class="content blog-content">	
 			
 			<?php 
 				if ( have_posts() ) {
-					while ( have_posts() ) {
-						the_post(); 
-						if ( has_post_thumbnail() ) {
-									?> <div class="blog_post_thumb"> <?php
-									the_post_thumbnail();
-									?> </div> 
-							<?php } ?>
+					while ( have_posts() ) { the_post(); ?>
 						
 						<div class="blog_title"><h1><?php the_title(); ?></h1></div>
-						<p class="blog_date">  <?php _e( 'Published on: ','sensationred'); the_date(); ?></p>
-						<?php 
-						the_content();
-						?>
+						<p class="blog_date">  <?php _e( 'Published on: ','sensationred'); the_date('j F, Y'); ?></p>
+						
+						<?php if ( has_post_thumbnail() ) echo '<div class="blog_post_thumb">'.get_the_post_thumbnail().'</div>'; ?>
+												
+						<?php the_content(); ?>						
+						
 						<div class="page_navigation">
 							<?php if(get_next_post_link('%link', '%title', true)) {?>
 								<?php	next_post_link('<div class="next_post_button">%link</div>', __('&larr; to next post','sensationred'), true); ?>

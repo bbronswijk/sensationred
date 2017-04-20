@@ -36,8 +36,8 @@
 			}			
 			wp_enqueue_script( 'sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','','', true);
 			wp_enqueue_script( 'mobile_nav_script', get_template_directory_uri() . '/js/header.js','','', true);
-			wp_enqueue_style('default_stylesheet', get_template_directory_uri().'/style.css','','3.6.9');
-			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','','3.6.9');
+			wp_enqueue_style('default_stylesheet', get_template_directory_uri().'/style.css','','3.7.0');
+			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','','3.7.0');
 			
 			// double tap to go is een script dat dropdown menu's mogelijk maakt op touch devices. Dit is voor ipad belangrijk!!
 			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js','','', true);

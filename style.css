@@ -5,7 +5,7 @@
 * GitHub Theme URI:	bbronswijk/sensationred
 * Author: 			IT Laga | Bram Bronswijk   
 * Author URI: 		http://laga.nl
-* Version: 			3.6.9
+* Version: 			3.7.0
 * License: 			GNU General Public License v2 or later
 * License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: 		sensationred
@@ -532,10 +532,22 @@ header{
 	line-height:1.5em;
 }
 
-/* 6.1 POST */
+/* 6.1 SINGLE POST */
+.blog-content{
+	padding: 4% 12%;
+}
+
+.blog-content .blog_title h1{
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
 .blog_title h1{
 	margin-bottom:0.2em;	
 	line-height: 1em;
+	color: #555;
+	text-align: center;
+	font-family: PT serif;
 }
 
 .blog_date{
@@ -544,11 +556,14 @@ header{
 	padding:0;
 	font-style: italic;
 	font-size:12px;
+	text-align: center;
 }
 
 .blog_post_thumb {
-	width:100%;
-	overflow:hidden;	
+	width:90%;
+	overflow:hidden;
+	margin-left: auto;
+	margin-right: auto;	
 	margin-bottom:2em;
 }
 
@@ -628,7 +643,7 @@ header{
 	background:#ea1a35;
 	padding:5px 0px;
 	position:absolute;
-	right:0;
+	right:12%;
 	width:200px;
 	text-align:center;
 }
@@ -640,7 +655,7 @@ header{
 
 .previous_blog_link a{
 	position:absolute;
-	right:15px;
+	right:12%;
 	margin-top:-20px;
 	color:#999;
 }
@@ -1097,6 +1112,20 @@ footer .copyright{
 	.hoofd_sponsor img{
 		height: auto;
 		max-width: 350px;
+	}
+	
+	.page_navigation{
+		margin-left: -12%;
+		width: 124%;
+		margin-bottom: 30px;
+	}
+	
+	.previous_post_button a{
+		right: 3%;
+	}
+	
+	.previous_blog_link a{
+		right: 3%;
 	}
 }
 
