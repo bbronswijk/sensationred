@@ -1,4 +1,5 @@
 	<?php get_header(); ?>
+		
 	<div class="main_home container">	
 		<div class="wrapper <?php if(get_option('he_show_movie')=="show"){ echo movie; } ?>">	
 			<div id="column1" class="column">

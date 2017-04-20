@@ -156,7 +156,8 @@
 	// customizer settings
 	require_once 'includes/customizer.php';
 	
-	
+	// create countdown shortcode
+	require_once('includes/countdown.php');
 	
 	// register dashboard widget
 	require_once 'includes/dashboard-widget.php';

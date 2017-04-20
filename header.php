@@ -53,8 +53,8 @@
 		    </div><!-- container --> 
 	   </header><!-- bg nav --> 	
 	
-    	
-    		
+    	    		
+	<?php get_template_part( 'template-parts/countdown'); ?>
 
     		
 	    		

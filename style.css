@@ -667,6 +667,61 @@ header{
 	color:#999;
 }
 
+/* COUNTDOWN CLOCK HEADER */
+.countdown{
+	width:430px;
+	margin-top: 30px;
+	margin-bottom: -40px;
+	height:66px;
+	position: absolute;
+	position: relative;
+	left: calc( 50% - 215px );
+}
+
+.countdown-color{
+	color: #fff;	
+}
+
+.home .countdown{
+	margin-top: 20px;
+}
+
+.countdown_section{
+	display: block;
+    float: left;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 10px;
+    width:85px;
+}
+
+.countdown_sep{
+    font-size: 42px;
+    line-height: 48px;
+	font-family: Open Sans;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    width: 30px
+}
+
+.countdown_amount{
+    font-size: 42px;
+    line-height: 48px;
+	font-family: Open Sans;
+    color:inherit;
+}
+
+.countdown h3{
+	font-size: 12px;
+	letter-spacing: 4px;
+	margin-top: 0;
+	padding-top: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
 
 
 /* 6.3 SPONSOREN/CHARITY POSTS -> charity en sponsoren hebben de zelfde class */
@@ -1056,6 +1111,10 @@ footer .copyright{
 	
 	.sponsor_text{
 		width: 90%;
+	}
+	
+	.countdown{
+		display: none;
 	}
 	
 	
