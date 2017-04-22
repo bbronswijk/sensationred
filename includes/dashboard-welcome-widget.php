@@ -24,24 +24,26 @@ function rv_custom_dashboard_widget() {
 				<div class="welcome-panel-column welcome-panel-last" style="width: 32% !important;">
 					<h3>Veel gebruikte opties</h3>
 					<ul>
+						<li><a href="<?php echo admin_url(); ?>nav-menus.php" class="welcome-icon welcome-view-site">Bewerk Menu's</a></li>
 						<li><a href="<?php echo admin_url(); ?>admin.php?page=he_setting_page" class="welcome-icon welcome-edit-page">Bewerk homepage</a></li>
 						<li><a href="<?php echo admin_url(); ?>edit.php?post_type=sponsoren" class="welcome-icon welcome-add-page">Bewerk sponsoren</a></li>
 						<li><a href="<?php echo admin_url(); ?>widgets.php" class="welcome-icon welcome-widgets-menus">Bewerk footer</a></li>
-						<li><a href="<?php echo admin_url(); ?>nav-menus.php" class="welcome-icon welcome-view-site">Bewerk Menu's</a></li>
 					</ul>
 				</div>
 				<div class="welcome-panel-column ">
 					<h3>Tutorial</h3>
 					<ul>
+						<li><a href="http://wordpress.laga.nl/wordpress-101/" class="welcome-icon welcome-learn-more" target="_blank">Wordpress 101</a></li>
+						<li><a href="http://wordpress.laga.nl/mega-menu/" class="welcome-icon welcome-learn-more" target="_blank">Mega menu dropdown</a></li>
 						<li><a href="http://wordpress.laga.nl/foto-album/" class="welcome-icon welcome-learn-more" target="_blank">Plaats een gallery op website</a></li>
-						<!--  <li><a href="<?php echo admin_url(); ?>admin.php" class="welcome-icon welcome-learn-more">Turn comments on or off</a></li>
-						<li><a href="<?php echo admin_url(); ?>admin.php" class="welcome-icon welcome-learn-more">Learn more about getting started</a></li>-->
+						<li><a href="http://wordpress.laga.nl/veel-gestelde-vragen/" class="welcome-icon welcome-learn-more" target="_blank">Veel gestelde vragen</a></li>
+						
 					</ul>
 				</div>
 				<div class="welcome-panel-column" style="padding-right: 50px; box-sizing: border-box;">
-					<h3 style="margin-bottom: 10px;">Hulp nodig? (BETA)</h3>
+					<h3 style="margin-bottom: 10px;">Hulp nodig?</h3>
 					<a class="button button-primary" href="http://wordpress.laga.nl/wordpress-tutorials/" target="_blank">Tutorials Laga wordpress</a>
-					<p>De tutorial website zal komende tijd worden aangevuld.</p>
+					<p>Is dit de eerste keer dat je een wordpress website beheert? Bekijk dan eerst even deze chille korte tutorials.</p>
 					<!--  <p>Na het doorlopen van de tutorials nog steeds vragen? Probeer voordat je de IT commissie een mailtje stuurt, <a href="http://localhost:8888/uw-website/wp-admin/themes.php">eerst eens de volgende stappen..</a></p>
 					-->
 				</div>
