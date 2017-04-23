@@ -8,7 +8,7 @@
 	function add_theme_script() {
 			// id, src, dependencies, version, footer
 			wp_deregister_script('jquery');
-			wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js','','3.2.1', true);
+			wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js','','3.2.1', true);
 			wp_enqueue_style('font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 			wp_enqueue_style('open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700'); 
 
@@ -17,18 +17,19 @@
 			wp_enqueue_style('query_stylesheet', get_template_directory_uri().'/css/queries.css','', wp_get_theme()->get('Version') );
 			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','',wp_get_theme()->get('Version') );
 
-			if( is_category() )
+			if( is_category() ){
 				wp_enqueue_script( 'masonry-js', get_template_directory_uri().'/js/masonry.pkgd.min.js', array('jquery'), '1.1.0', true );
-
+			}
+			
 			// double tap to go is een script dat dropdown menu's mogelijk maakt op touch devices. Dit is voor ipad belangrijk!!
-			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js','','', true);
+			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js',array('jquery'),'', true);
 				
-			wp_enqueue_script('theme_script', get_template_directory_uri() . '/js/main.js','',wp_get_theme()->get('Version'), true);
-			wp_enqueue_script('sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','',wp_get_theme()->get('Version'), true);
+			wp_enqueue_script('theme_script', get_template_directory_uri() . '/js/main.js',array('jquery'),wp_get_theme()->get('Version'), true);
+			wp_enqueue_script('sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js',array('jquery'),wp_get_theme()->get('Version'), true);
 						
 			
 			if ( is_page_template( 'sponsor-page.php' ) || is_page_template( 'charity-page.php' ) )
-				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js','','', true);
+				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js',array('jquery'),'', true);
 			
 			// include stylesheet for floating social bar
 			if ( is_plugin_active( 'floating-social-bar/floating-social-bar.php' ) )

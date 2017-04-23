@@ -286,7 +286,8 @@ header{
 }
 
 .content h1.page-title{
-	font-weight: 300;
+	font-weight: 300;	
+	padding-bottom: 20px;
 	margin-bottom: 20px;
 	font-size: 40px;
 	border-bottom: 1px solid #ccc;

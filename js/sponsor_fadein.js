@@ -2,8 +2,7 @@
  * @author Bram Bronswijk
  */
 
-(function($) {
-	$(window).load(function() {
+jQuery(document).ready(function($){
 		
 			function widget_sponsor(){
 				// Er wordt maar één hoofdsponsor per keer getoond. De rest word opgevuld met parners/subsponsoren
@@ -159,5 +158,4 @@
 			}
 	
 		
-	});
-})(jQuery);	
+});
