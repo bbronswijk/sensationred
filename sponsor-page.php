@@ -10,26 +10,18 @@
 						
 			<div class="content sponsoren_overview">	
 
-			<?php 
-				if ( have_posts() ) {
-					while ( have_posts() ) {
-						?><article><?php
-						the_post(); 
-						//
-						
-						?>
-						<h1 class="title"><?php the_title(); ?></h1>
-						<?php 
-						the_content();
-						?>
-						
+			<?php if ( have_posts() ) :
+					while ( have_posts() ){ the_post(); ?>						
+						<article>
+							<h1 class="page-title"><?php the_title(); ?></h1>
+							<?php the_content();?>
 						</article>
-						<?php
-						//
-					} // end while
-				} // end if
-
-				wp_reset_query();
+				<?php } ?>
+					
+			<?php endif; ?>
+			
+			
+			<?php wp_reset_query();
 						
 						$args = array(
 							'post_type' => 'sponsoren',
@@ -44,14 +36,11 @@
 						);
 						$query = new WP_Query( $args );
 					
-						if ( $query->have_posts() ){ ?>
-						
+						if ( $query->have_posts() ): ?>						
 							<div class="sponsoren_title"><?php _e('Head sponsor','sensationred');?></div>
 					
-							<?php 					
-							while ( $query->have_posts() ) { $query->the_post();
-								if ( has_post_thumbnail() ) {
-									?>
+							<?php while ( $query->have_posts() ) { $query->the_post();
+								if ( has_post_thumbnail() ) : ?>
 										<span class="sponsor_posts">
 											<?php the_post_thumbnail('medium'); ?>					
 
@@ -66,15 +55,10 @@
 												</div>
 										</span>
 									<?php
-								} // end if
-								
+								endif;							
 							} // end while
-						} // end if have posts
-				?>
-				
-				
-				
-				<?php 
+						endif;
+
 				wp_reset_query();
 						
 						$args = array(
@@ -90,13 +74,12 @@
 						);
 						$query = new WP_Query( $args );
 					
-						if ( $query->have_posts() ){	
+						if ( $query->have_posts() ):
 							
 							echo '<div class="sponsoren_title">partners</div>';
 							
 							while ( $query->have_posts() ) { $query->the_post();
-									if ( has_post_thumbnail() ) { 					
-										?>
+									if ( has_post_thumbnail() ) : ?>
 										<span class="sponsor_posts">
 											<?php the_post_thumbnail('medium'); ?>	
 												
@@ -111,15 +94,10 @@
 											</div>
 										</span>
 									
-										<?php
-									} // end if
+									<?php endif; // end if
 							} // end while
-						} // end if
-				?>
-				
-				
-				
-				<?php 
+						endif;
+
 				wp_reset_query();
 						
 						$args = array(
@@ -135,12 +113,12 @@
 						);
 						$query = new WP_Query( $args );
 					
-						if ( $query->have_posts() ){	
+						if ( $query->have_posts() ):	
 							
 							echo '<div class="sponsoren_title">Leveranciers</div>';
 							
 							while ( $query->have_posts() ) { $query->the_post();
-									if ( has_post_thumbnail() ) { 					
+									if ( has_post_thumbnail() ): 					
 										?>
 										<span class="sponsor_posts">
 											<?php the_post_thumbnail('medium'); ?>	
@@ -154,15 +132,12 @@
 													<?php the_content('<p>Read more &rarr;</p>');?>	
 												</div>				
 											</div>
-										</span>
-									
-										<?php
-									} // end if
-							} // end while
-						} // end if
-				?>
+										</span>									
+									<?php endif;
+							} 
+						endif; ?>
 				
-			</div><!-- SPONSORen -->
+	
 			
 			
 			

@@ -15,4 +15,4 @@
 			dynamic_sidebar( $sidebar ) ;
 
 	?>
-</div><!-- sidebar -->
+</div>

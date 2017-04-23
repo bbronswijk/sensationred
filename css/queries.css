@@ -1,0 +1,116 @@
+
+/* 10. Media Queries */
+/*
+ *  Adjust display of widgets
+ * 
+ */
+@media all and (max-width : 1100px) {
+	.background_footer .footer_widgets .widget_nav_menu{
+		padding-left: 30px;
+		width: 120px;
+		margin-right:5px;
+	}
+	
+	.background_footer .footer_widgets{
+		padding-left: 30px;
+	}
+}
+
+@media all and (max-width : 950px) {	
+
+	.sponsor_text h1{
+		font-size: 30px;
+	}
+	
+	.background_footer .footer_widgets .widget{
+		padding-left: 20px;
+	}
+}
+
+@media all and (max-width : 880px) {
+	.background_footer .footer_widgets .widget_nav_menu{
+		display:none;
+	}
+	
+	
+	.sub_sponsor{
+		display:none;
+	}
+}
+
+@media all and (max-width : 800px) {
+	
+	#blog-container .blog_post{
+		width: 47%;
+	}
+	
+	.main .sidebar{
+		display:none;
+	}
+	
+	.content_left{
+		width: 88%;
+	}
+	
+	.sponsor_text h1{
+		font-size: 20px;
+	}
+		
+	.hoofd_sponsor{
+		height: 70px;
+	}
+	
+	.hoofd_sponsor img{
+		height: auto;
+		max-width: 350px;
+	}
+	
+	.page_navigation{
+		margin-left: -12%;
+		width: 124%;
+		margin-bottom: 30px;
+	}
+	
+	.previous_post_button a{
+		right: 3%;
+	}
+	
+	.previous_blog_link a{
+		right: 3%;
+	}
+}
+
+@media all and (max-width : 725px) {
+	.sponsor_post_content img{
+		display:none;
+	}
+	
+	.background_footer .footer_widgets .social-media{
+		display:none;
+	}
+	
+	.sponsor_text{
+		width: 90%;
+	}
+	
+	.countdown{
+		display: none;
+	}
+		
+	.background_footer .footer_widgets .widget:nth-child(4) {
+		display:none;
+	}
+	
+	footer .links{
+		display: none;
+	}
+
+}
+
+@media all and (max-width: 580px){	
+	
+	#blog-container .blog_post{
+		width: 97%;
+	}
+
+}

@@ -10,26 +10,14 @@
 						
 			<div class="content content_full">		
 
-			<?php 
-				if ( have_posts() ) {
-					while ( have_posts() ) {
-						?><article><?php
-						the_post(); 
-						//
-						
-						?>
-						<h1><?php the_title(); ?></h1>
-						<?php 
-						the_content();
-						?>
+				<?php if ( have_posts() ) :
+					while ( have_posts() ) { the_post(); ?>
+						<article>
+							<h1 class="page-title"><?php the_title(); ?></h1>
+							<?php the_content(); ?>
 						</article>
-						<?php
-						//
-					} // end while
-				} // end if
-			?>
-			
-			
+					<?php } ?>
+				<?php endif; ?>
 			
 			</div> <!-- content -->
 		</div><!-- wrapper -->

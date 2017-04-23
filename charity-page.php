@@ -5,29 +5,20 @@
 	?>
 
 	<?php get_header(); ?>
+	
 	<div class="container main">	
 		<div class="wrapper">			
 			<div class="content sponsoren_overview">	
 
 			<?php 
-				if ( have_posts() ) {
-					while ( have_posts() ) {
-						?><article><?php
-						the_post(); 
-						//
-						
-						?>
-						<h1 class="title"><?php the_title(); ?></h1>
-						<?php 
-						the_content();
-						?>
-						
+				if ( have_posts() ) :
+					while ( have_posts() ) { the_post(); 
+						?><article>
+							<h1 class="page-title"><?php the_title(); ?></h1>
+							<?php the_content(); ?>						
 						</article>
-						<?php
-						//
-					} // end while
-				} // end if
-			?>
+					<?php } ?>
+				<?php endif; ?>
 
 				<?php 
 						$args = array( 

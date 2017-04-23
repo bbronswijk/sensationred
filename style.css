@@ -12,8 +12,7 @@
 * Tags: 			Red, White, Gray
 * 
 * TABLE OF CONTENTS
-* 0.			Reset
-* 1.			Default Items
+* 1.			Reset
 * 2.			Header
 * 	2.1		Qtranslate icons
 * 	2.2		Custom bg
@@ -30,27 +29,24 @@
 * 7.			Sponsoren in footer
 * 8. 			Footer widgets
 * 9.			Footer ( red bar )
-* 10.			Media Queries ( adjust widgets + set full width content )
-*  
 * 
 * OTHER STYLESHEETS
+* content.css								Stylesheet voor alle tekst en content die ook als editor style gebruikt kan worden
+*											Alles wat niet in de editor staat moet in style.css
 * nav.css									Stylesheet for header en menu ( loaded on all pages )
 * homepage_editor/style.css					Stylesheet homepage ( alleen op homepage )
 * editor_style.css							Stylesheet to style the text in the text editor in admin
 * nggallery.css								Stylesheet for NextGEN Gallery plugin
 * recent_newspost/style_recentposts.css		Stylesheet for newspost widget in sidebar
+* recent_newspost/style_recentposts.css		Stylesheet for media queries (responsive elements)
 * 
 * 
 */
 
-/* 0. RESET */
+/* 1. RESET */
 *{
 	margin:0;
 	padding:0;
-	color:#565656;
-	font-family: Open Sans, Arial, Helvetica, sans-serif;
-	font-size:14px;
-	font-weight: 300;
 }
 
 body {
@@ -60,162 +56,6 @@ body {
 
 body.noscroll{
 	overflow: hidden;
-}
-
-/* 1. DEFAULT ITEMS */
-iframe{
-  max-width: 100%;
-}
-
-h1,h2,h3,h4,h5,h6{	
-	font-weight: 400;
-	font-family: Verdana, Helvetica, sans-serif;
-}
-
-h1{
-	font-size: 40px;
-	color:#ea1a35;
-	font-weight: bold;
-	margin-bottom:0.4em;
-	clear: both;
-}
-
-h2 {
-	font-size:22px;
-	color:#ea1a35;
-	font-weight: bold;
-	text-decoration: none;
-	clear: both;
-	font-size: 16px;
-    color: #a7a7a7;
-    font-weight: bold;
-    text-decoration: none;
-    font-weight: normal;
-}
-}
-
-h2 a{
-	font-size:22px;
-	color:#ea1a35;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-h3, h4, h5, h6 {
-	clear: both;
-	line-height:2em;
-}
-
-h3{
-	font-size:1.17em;
-	color:#ea1a35;
-}
-
-h4{
-	font-size:1.17em;
-	color:#999999;
-	font-weight:normal;
-}
-
-h5{
-	font-size:0.83em;
-}
-
-h6{
-	font-size:0.73em;
-}
-
-strong{
-	margin:0;
-	font-weight: bold;
-}
-
-a{
-	color:#ea1a35;
-	text-decoration: none;
-	-webkit-transition-property:color, text;
-	-webkit-transition-duration: 0.2s;
-	-webkit-transition-timing-function: linear;
-	-moz-transition-property:color, text;
-	-moz-transition-duration:0.2s;
-	-moz-transition-timing-function: linear;
-	-o-transition-property:color, text;
-	-o-transition-duration:0.2s;
-	-o-transition-timing-function: linear;
-}
-
-ol, ul{
-	margin: 0 0 24px 0;
-}
-
-li{
-	margin-left:20px;
-}
-
-hr{
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin:0.5em 0 24px 0;
-}
-
-p{
-	padding-top:0.7em;
-	font-size:14px;
-}
-
-table{
-	border-spacing: 0px;
-	border-left: 1px solid #edf0f0;
-	margin-bottom: 1em;
-}
-
-tbody{
-	vertical-align: middle;
-}
-
-th{
-	background: #edf0f0;
-	text-align:left;
-	font-weight: bold;
-}
-
-tr:first-child{
-	border-top:1px solid #edf0f0;
-}
-
-tr:last-child{
-	border-bottom: 1px solid #edf0f0;
-}
-
-tr{
-	padding:5px 0;
-	border-bottom:1px solid gray;
-	width:100%;
-}
-
-td, th{
-	vertical-align:text-top;
-	padding: 10px 15px;
-	border-right: 1px solid #edf0f0;
-}
-
-tr:nth-child(odd){
-	background:#f8f9f9;
-}
-
-tr:hover{
-	background: #f7f7f7;
-}
-
-.alignright{
-	float:right;
-	display:inline;
-}
-
-.alignleft{
-	float: left;
-	display: inline;
 }
 
 /* 2. HEADER */
@@ -248,22 +88,20 @@ header{
 }
 
 /* header image */
-.custom-bg{
+.banner-bg{
 	background: url("images/header.jpg") ;
 	top:0;
 	position:absolute;
 	height:750px;
-	min-height:750px;
 	width:100%;
 	overflow:hidden;
 	background-size: cover;
-	background-position:bottom;
 	
 }
 
-.custom-bg > .header_gradient{
+.banner-bg > .header_gradient{
 	position: absolute;
-	background: url("images/header_gradient.png") ;
+	background: url("images/header_gradient.png") repeat-x;
 	bottom:0;	text-indent:-9999px;
 	width:100%;
 	height:396px;	
@@ -277,7 +115,6 @@ header{
 	margin:20px 0 20px 20px;
 	
 }
-
 
 
 /* 4. CONTAINER/WRAPPER */
@@ -448,88 +285,20 @@ header{
 	border-left: none;
 }
 
-.content h1{
+.content h1.page-title{
 	font-weight: 300;
-	padding-bottom: 20px;
-	font-family: Open Sans, Arial, sans-serif;
+	margin-bottom: 20px;
+	font-size: 40px;
 	border-bottom: 1px solid #ccc;
+	color: #ea1a35;
 }
 
-.content div{
-	max-width: 100%;
-}
-
-.content img{
-	max-width: 100%;
-	height: auto;
-	padding: 15px 0;
-	height:auto;
-}
-
-.content .size-large{
-	max-width:100%;
-	height:auto;
-	padding:0 0 20px 0;
-}
-
-.content .wp-caption img{
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-.content img.alignleft{
-	margin-right: 15px;
-}
-
-.content img.alignright{
-	margin-left: 15px;
-}
-
-.content img.aligncenter{
-	display: block; 
-	margin-left: auto; 
-	margin-right: auto; 
-	clear: both;
-}
-
-.content .wp-caption-text{
-	color:#777;
-	font-style:italic;
-	font-size:12px;
-	margin-left:20px;
-	margin-top:0px;
-	padding-top:0 ;
-	text-align: center;
-}
-
-
-.content blockquote p:before{
-	content:'“';
-	position:absolute;
-	font-size:80px;
-	font-weight:bold;
-	margin-left:-50px;
-	margin-top:20px;
-	font-family:"Arial";
-	font-style:normal;
-}
-
-
-.content blockquote p{
-	font-family:Georgia;
-	font-style: italic;
-	padding:0 3em;
-	line-height: 1.5em;
-	color:#555;
-}
-
-.content p{
-	margin-bottom:1em;
-	line-height:1.7em;
-}
-
-.content li{
-	line-height:1.5em;
+.user-notification {
+    background: #e9b5b5;
+    margin: 5px 15px 2px 0px;
+    padding: 10px 12px;
+    width: 90%;
+    border-radius: 3px;
 }
 
 /* 6.1 SINGLE POST */
@@ -814,6 +583,7 @@ header{
 	margin-bottom:5px;
 }
 
+/* driehoekje dat vanuit de contentbox naar het sponsor logo wijst */
 .box{
 	position:absolute;
 	background:#fff;
@@ -884,8 +654,6 @@ header{
 	width:200px;
 }
 
-
-
 .hoofd_sponsor a> img{
 	float:left;
 	margin: 20px 0;
@@ -924,38 +692,6 @@ header{
 	position: relative;
 }
 
-.footer_widgets li{
-	list-style: none;
-}
-
-.footer_widgets .widget_nav_menu ul{
-	padding-top:0.7em;
-}
-
-.footer_widgets .widget_nav_menu li{
-	margin:0;	
-	border-top: 1px solid #cacaca;
-}
-
-.footer_widgets .widget_nav_menu li:last-of-type{
-	border-bottom: 1px solid #cacaca;
-}
-
-.footer_widgets .widget_nav_menu li a{
-	display: block;
-	color:#4c4c4c;
-	padding: 6px 12px;
-	font-size: 13px;
-	width: 100%;
-}
-
-.footer_widgets .widget li a:hover{
-	color:#ea1a35;
-}
-
-.footer_widgets img{
-	width:160px; 
-}
 
 .footer_widgets .widget{
 	float:left;
@@ -981,6 +717,10 @@ header{
 /* hardcoded laga logo */
 .footer_widgets .widget:first-of-type{
 	padding-left: 0;
+}
+
+.footer_widgets img{
+	width:160px; 
 }
 
 /* HARDCODED SOCIAL media widget */
@@ -1015,6 +755,40 @@ header{
 	color: #ddd;
 }
 
+/* navigatie menu */
+.footer_widgets li{
+	list-style: none;
+}
+
+.footer_widgets .widget_nav_menu ul{
+	padding-top:0.7em;
+}
+
+.footer_widgets .widget_nav_menu li{
+	margin:0;	
+	border-top: 1px solid #cacaca;
+}
+
+.footer_widgets .widget_nav_menu li:last-of-type{
+	border-bottom: 1px solid #cacaca;
+}
+
+.footer_widgets .widget_nav_menu li a{
+	display: block;
+	color:#4c4c4c;
+	padding: 6px 12px;
+	font-size: 13px;
+	width: 100%;
+}
+
+.footer_widgets .widget li a:hover{
+	color:#ea1a35;
+}
+
+.footer_widgets .widget:last-child{
+	float: right;
+	margin-right: 30px;
+}
 
 /* 9. FOOTER ( red bar ) */
 footer{
@@ -1048,136 +822,4 @@ footer .copyright{
 	font-size:12px;
 	text-align:right;
 	padding-right:20px;
-}
-
-/* 10. Media Queries */
-/*
- *  Adjust display of widgets
- * 
- */
-@media all and (max-width : 1100px) {
-	.background_footer .footer_widgets .widget_nav_menu{
-		padding-left: 30px;
-		width: 120px;
-		margin-right:5px;
-	}
-	
-	.background_footer .footer_widgets{
-		padding-left: 30px;
-	}
-}
-
-@media all and (max-width : 950px) {	
-
-	.sponsor_text h1{
-		font-size: 30px;
-	}
-	
-	.background_footer .footer_widgets .widget{
-		padding-left: 20px;
-	}
-}
-
-@media all and (max-width : 880px) {
-	.background_footer .footer_widgets .widget_nav_menu{
-		display:none;
-	}
-	
-	
-	.sub_sponsor{
-		display:none;
-	}
-}
-
-@media all and (max-width : 800px) {
-	
-	#blog-container .blog_post{
-		width: 47%;
-	}
-	
-	.main .sidebar{
-		display:none;
-	}
-	
-	.content_left{
-		width: 88%;
-	}
-	
-	.sponsor_text h1{
-		font-size: 20px;
-	}
-		
-	.hoofd_sponsor{
-		height: 70px;
-	}
-	
-	.hoofd_sponsor img{
-		height: auto;
-		max-width: 350px;
-	}
-	
-	.page_navigation{
-		margin-left: -12%;
-		width: 124%;
-		margin-bottom: 30px;
-	}
-	
-	.previous_post_button a{
-		right: 3%;
-	}
-	
-	.previous_blog_link a{
-		right: 3%;
-	}
-}
-
-@media all and (max-width : 725px) {
-	.sponsor_post_content img{
-		display:none;
-	}
-	
-	.background_footer .footer_widgets .social-media{
-		display:none;
-	}
-	
-	.sponsor_text{
-		width: 90%;
-	}
-	
-	.countdown{
-		display: none;
-	}
-	
-	
-	.background_footer .footer_widgets .widget:nth-child(4) {
-		display:none;
-	}
-	
-	.background_footer .footer_widgets .widget:last-child{
-		float:right;
-		margin-right: 30px;
-	}
-	
-	footer .links{
-		display: none;
-	}
-	
-	
-}
-
-
-@media all and (max-width: 580px){	
-	
-	#blog-container .blog_post{
-		width: 97%;
-	}
-
-}
-
-@media all and (max-width: 480px){	
-	.sponsoren{
-		display:none;
-	}
-
-
 }

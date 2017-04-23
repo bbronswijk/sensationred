@@ -104,7 +104,7 @@ nav.main_nav ul ul{
 
 nav.main_nav ul ul li{
 	margin:0;
-	padding:7px 10px;
+	padding:7px 0px;
 	float:none;
 	min-width:80px;
 	border:none;
@@ -147,10 +147,10 @@ nav.main_nav ul li ul li:hover ul {
 /* mega menu */
 .home nav.main_nav ul li.mega-menu ul{	
 	margin-top: 12px;
-	box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
 }
 
-nav.main_nav ul li.mega-menu ul{	
+nav.main_nav ul li.mega-menu ul{
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.3);	
 }
 
 nav.main_nav ul li.mega-menu ul{
