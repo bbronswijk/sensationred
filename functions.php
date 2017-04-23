@@ -16,12 +16,16 @@
 			wp_enqueue_style('theme_stylesheet', get_template_directory_uri().'/style.css','', wp_get_theme()->get('Version') );
 			wp_enqueue_style('query_stylesheet', get_template_directory_uri().'/css/queries.css','', wp_get_theme()->get('Version') );
 			wp_enqueue_style('nav_stylesheet', get_template_directory_uri().'/css/nav.css','',wp_get_theme()->get('Version') );
-			
-			wp_enqueue_script('sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','',wp_get_theme()->get('Version'), true);
-			wp_enqueue_script('theme_script', get_template_directory_uri() . '/js/main.js','',wp_get_theme()->get('Version'), true);
-						
+
+			if( is_category() )
+				wp_enqueue_script( 'masonry-js', get_template_directory_uri().'/js/masonry.pkgd.min.js', array('jquery'), '1.1.0', true );
+
 			// double tap to go is een script dat dropdown menu's mogelijk maakt op touch devices. Dit is voor ipad belangrijk!!
 			wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.js','','', true);
+				
+			wp_enqueue_script('theme_script', get_template_directory_uri() . '/js/main.js','',wp_get_theme()->get('Version'), true);
+			wp_enqueue_script('sponsor_fadein_script', get_template_directory_uri() . '/js/sponsor_fadein.js','',wp_get_theme()->get('Version'), true);
+						
 			
 			if ( is_page_template( 'sponsor-page.php' ) || is_page_template( 'charity-page.php' ) )
 				wp_enqueue_script( 'sponsor_script', get_template_directory_uri() . '/js/sponsoren.js','','', true);
@@ -29,10 +33,6 @@
 			// include stylesheet for floating social bar
 			if ( is_plugin_active( 'floating-social-bar/floating-social-bar.php' ) )
 			  wp_enqueue_style( 'floating-social-bar', get_template_directory_uri() . '/css/floating_social_bar.css');
-			
-			
-			if( is_category() )
-				wp_enqueue_script( 'masonry-js', get_template_directory_uri().'/js/masonry.pkgd.min.js', array('jquery'), '1.1.0', true );
 			
 			// include stylesheet for woocommerce
 			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) 
