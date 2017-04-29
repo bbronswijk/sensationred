@@ -12,7 +12,7 @@
 			<?php if ( have_posts() ) :
 					while ( have_posts() ) { ?>
 						<article>
-							<h1 class="page-title">Foto's</h1>
+							<h1 >Foto's</h1>
 							<?php the_post(); ?>
 							<?php the_content();?>							
 						</article>

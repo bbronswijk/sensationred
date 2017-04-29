@@ -31,10 +31,13 @@ jQuery(document).ready(function($){
 	}
 	
 	/* grid van nieuws overzicht */
-	setTimeout(function(){  
-		$('#blog-container').masonry({
-			  itemSelector: '.blog_post'
-		});
-	}, 300);
-
+	if( $.isFunction($.fn.masonry) ){
+		setTimeout(function(){  
+			$('#blog-container').masonry({
+				  itemSelector: '.blog_post'
+			});
+		}, 300);
+	}
+	
+	
 });

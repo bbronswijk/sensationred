@@ -166,6 +166,7 @@ tr:hover{
 .content img{
 	max-width: 100%;
 	height: auto;
+	margin-bottom: 15px;
 }
 
 img.alignleft, a img.alignleft{

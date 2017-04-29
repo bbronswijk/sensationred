@@ -2,108 +2,117 @@
 CSS Name: SensationRed nggallery
 Description: NextGEN Default Gallery Stylesheet
 Author: Alex Rabe, edited by Bram Bronswijk
-Version: 2.11
-
-This is a template stylesheet that can be used with NextGEN Gallery. I tested the
-styles with a default theme Kubrick. Modify it when your theme struggle with it,
-it's only a template design
+Version: 3.0
 
 */
 
 .wrapper_gallery{
 	overflow-x:hidden;
+	padding-top: 0px;
+	font-family: Open Sans;
 	
 }
 
 .wrapper_gallery h1{
-	padding:20px 0 0 40px;
-	margin-bottom:0;
+	padding-top: 15px;
 }
 
-.wrapper_gallery h2{
-	margin:1em 0.2em 0.2em 0em;
-	
-	font-size:16px;
+.wrapper_gallery h1, .wrapper_gallery h2, .wrapper_gallery h3{
+	padding-left: 40px;
+	margin-bottom:10px;
 }
+
 
 /* ----------- Album Styles Extend -------------*/
 
 .ngg-albumoverview {
-	margin-top: 10px;
+	position: relative;
 	width: 100%;
 	clear:both;
 	display:block !important;
-	padding: 0 40px;
 }
 
 
 /* IE6 will ignore this , again I hate IE6 */
 /* See also http://www.sitepoint.com/article/browser-specific-css-hacks */
-html>body .ngg-album {
-    overflow:hidden;
-    height: 150px;
-    width: 225px;
-    float: left;
-    margin: 1px;
+.ngg-album {
+	position: relative;
+	overflow: hidden;
+	height: 200px;
+   	width: calc( 33% - 20px );
+   	margin: 10px;
+	float: left;
+	background: #222;
 }
 
-.ngg-album {
-	overflow: hidden;
-	height: 150px;
-   	width: 225px;
-	float: left;
-    	margin: 1px;
+
+@media all and (max-width : 950px) {
+	
+	.ngg-album {
+	   	width: calc( 50% - 20px );
+	}
+	
+}
+
+@media all and (max-width : 600px) {
+	
+	.ngg-album {
+	   	width: calc( 100% - 20px );
+	}
+	
 }
 
 .ngg-albumtitle{
-	display:none;
+	display:block;
 }
 
 .ngg-albumtitle, .ngg-albumtitle a {
 	text-align: left;
  	font-weight: bold;
 	padding:10px;
-	width:180px;
+	width: calc( 100% - 40px );
 	position:absolute;
 	z-index:4;
-	font-size: 20px;
+	font-size: 22px;
 	color: #fff;
 	text-decoration:none;
+	font-weight: 600;
 }
 
 .ngg-thumbnail {
-	position:absolute;
 	margin:0;
 }
 
 .ngg-thumbnail img {
-	z-index:1;
-}
-
-.ngg-album:hover img{
+	height: 100%;
+	width: 100%;
 	opacity:0.6;
 }
 
-.ngg-album:hover .ngg-description{
-	display:block;
-}
-
-.ngg-album:hover .ngg-albumtitle{
-	display:block;
-}
-
 .ngg-description{
-	display:none;
+	display:block;
+	bottom: 10px;
+	padding-left: 5px;
 	text-align: left;
 	position:absolute;
-	margin-top:100px;
 	margin-left:20px;
+	width: calc( 100% - 45px );
 	z-index:4;
+	border-top: 1px solid #e3e3e3;
 }
 
 .ngg-description p, .ngg-description strong{
 	color:#fff;
+	margin-bottom: 0;
 }
+
+.ngg-album:hover{
+	background: #ea1a35;
+}
+
+
+
+
 
 /* ----------- Album Styles Compact -------------*/
 

@@ -8,7 +8,8 @@
 	function add_theme_script() {
 			// id, src, dependencies, version, footer
 			wp_deregister_script('jquery');
-			wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js','','3.2.1', true);
+			// orangebox ondersteund max jquery 2.2.4
+			wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-2.2.4.min.js','','2.2.4', true);
 			wp_enqueue_style('font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 			wp_enqueue_style('open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700'); 
 
