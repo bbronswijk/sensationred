@@ -297,7 +297,7 @@ nav.main_nav ul li.mega-menu ul li.featured a span.sub{
 }
 
 .navicon.active{
-	top: 35px !important;
+	top: 0px;
 	position: fixed !important;
 }
 
@@ -351,9 +351,18 @@ nav.main_nav ul li.mega-menu ul li.featured a span.sub{
     opacity: 1;
 }
 
+body.admin-bar .nav_overlay.open {
+	margin-top:46px;
+}
+
+
+body.admin-bar .navicon.active {
+	top:46px;
+}
+
 .nav_overlay h2{
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 40px;
     color: #fff;
     padding-left: 15%;
     font-size: 24px;
@@ -381,7 +390,7 @@ nav.main_nav ul li.mega-menu ul li.featured a span.sub{
    	padding: 15px 0; 
    	color:#fff;
 	text-decoration:none;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .nav_overlay nav ul li ul{
