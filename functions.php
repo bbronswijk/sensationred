@@ -137,13 +137,13 @@
 	// register sidebar option for page editor
 	require_once 'includes/sidebar-option.php';
 	
-	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
+	// custom post type for charity and sponsors
 	require_once 'includes/post-types.php';
 	
 	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
 	require_once 'includes/support/support.php';
 	
-	// IT commissie support --> alleen wanneer de gebruiker is ingelogd
+	// mega menu dat wordt gebruikt op de ringvaart site
 	require_once 'includes/mega-menu.php';
 	
 	// gebruik de Github repository om updates uit te voeren	

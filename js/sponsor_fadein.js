@@ -127,10 +127,12 @@ jQuery(document).ready(function($){
 				}	
 			}  // widget sponsoren
 			
+			// loop fadein hoofd sponsor
 			timeout1 = false;
+			// loop fadein subsponsor
 			timeout2 = false;
 			
-			widget_sponsor();
+			setTimeout(widget_sponsor, 500);
 				
 			// only run function when user is done resizing screen
 			var timeout;

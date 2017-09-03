@@ -4,6 +4,7 @@
 	    		<?php if( function_exists('qtranxf_generateLanguageSelectCode') ) echo qtranxf_generateLanguageSelectCode('image'); ?>
 				
 				<div class="nav_overlay">
+					<h2>Navigatie Menu</h2>
 					<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'mobile_nav', 'container' => 'nav' )); ?>
 				</div>	
 				

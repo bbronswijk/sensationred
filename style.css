@@ -5,7 +5,7 @@
 * GitHub Theme URI:	bbronswijk/sensationred
 * Author: 			IT Laga | Bram Bronswijk   
 * Author URI: 		http://laga.nl
-* Version: 			3.7.0
+* Version: 			3.7.1
 * License: 			GNU General Public License v2 or later
 * License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: 		sensationred
@@ -102,7 +102,8 @@ header{
 .banner-bg > .header_gradient{
 	position: absolute;
 	background: url("images/header_gradient.png") repeat-x;
-	bottom:0;	text-indent:-9999px;
+	bottom:0;
+	text-indent:-9999px;
 	width:100%;
 	height:396px;	
 }
@@ -810,7 +811,8 @@ footer{
 
 footer a{
 	color:#fff;
-	text-decoration: none;	font-size: 12px;
+	text-decoration: none;
+	font-size: 12px;
 }
 
 footer .links{
