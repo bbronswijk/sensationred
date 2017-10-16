@@ -173,3 +173,8 @@
 		</style>';
 	}
 	add_action('login_head', 'custom_login_logo');
+
+	// enalbe automatic updates
+	add_filter( 'auto_update_plugin', '__return_true' );
+	add_filter( 'auto_update_theme', '__return_true' );
+	add_filter( 'auto_update_translation', '__return_true' );
